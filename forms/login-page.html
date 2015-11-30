@@ -3,15 +3,16 @@
         <legend>Basic Form Example</legend>
         <div class="form-group">
             <label *ng-if="email" for="exampleInputEmail1">Email address</label>
-
+            {{em.value}}
             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
-                   [(ng-model)]="model.email"
+                   [(ng-model)]="model.email" #em
                    ng-control="email">
         </div>
         <div class="form-group">
-            <label  *ng-if="password" for="exampleInputPassword1">Password</label>
+            {{pass.value}}
+            <label  *ng-if="pass.value" for="exampleInputPassword1">Password</label>
             <input type="password" ng-control="password"
-                   [(ng-model)]="model.password"
+                   [(ng-model)]="model.password" #pass
                    class="form-control" id="exampleInputPassword1"
                    placeholder="Password">
         </div>

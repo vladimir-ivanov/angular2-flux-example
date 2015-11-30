@@ -1,9 +1,11 @@
-import {Component, FormBuilder, Validators, ControlGroup, FORM_DIRECTIVES, CORE_DIRECTIVES, NgIf, Inject} from 'angular2/angular2'
+import {Component, FormBuilder, Validators, ControlGroup,
+    FORM_DIRECTIVES, CORE_DIRECTIVES, NgIf, Inject, ChangeDetectionStrategy} from 'angular2/angular2'
 
 @Component({
     selector: 'login-page',
     directives: <Array<any>>[FORM_DIRECTIVES, NgIf, CORE_DIRECTIVES],
-    templateUrl: './forms/login-page.html'
+    templateUrl: './forms/login-page.html',
+    changeDetection:ChangeDetectionStrategy.CheckAlways,
 })
 export class LoginPage {
     loginForm:ControlGroup;

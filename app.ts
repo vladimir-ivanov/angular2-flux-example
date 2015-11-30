@@ -1,11 +1,10 @@
-import { Component, bootstrap, View } from "angular2/angular2";
+import { Component, bootstrap, View , ChangeDetectionStrategy} from "angular2/angular2";
 import {FormBuilder, Validators, ControlGroup} from "angular2/angular2";
 import {LoginPage} from "./forms/login-page"
 
 @Component({
-    selector: 'forms-demo-app'
-})
-@View({
+    selector: 'forms-demo-app',
+    changeDetection:ChangeDetectionStrategy.CheckAlways,
     directives: <Array<any>>[LoginPage],
     template: `
   <div>
