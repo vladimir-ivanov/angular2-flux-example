@@ -2,17 +2,15 @@
     <fieldset>
         <legend>Basic Form Example</legend>
         <div class="form-group">
-            <label *ng-if="email" for="exampleInputEmail1">Email address</label>
-            {{em.value}}
+            <label *ng-if="model.email" for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
-                   [(ng-model)]="model.email" #em
+                   [(ng-model)]="model.email"
                    ng-control="email">
         </div>
         <div class="form-group">
-            {{pass.value}}
-            <label  *ng-if="pass.value" for="exampleInputPassword1">Password</label>
+            <label  *ng-if="model.password" for="exampleInputPassword1">Password</label>
             <input type="password" ng-control="password"
-                   [(ng-model)]="model.password" #pass
+                   [(ng-model)]="model.password"
                    class="form-control" id="exampleInputPassword1"
                    placeholder="Password">
         </div>
