@@ -5,7 +5,7 @@ module.exports = {
         app: './app.ts',
         angular2: [
             // Angular 2 Deps
-         //   '@reactivex/rxjs',
+            //   '@reactivex/rxjs',
             'zone.js',
             'reflect-metadata',
             // to ensure these modules are grouped together in one file
@@ -27,16 +27,16 @@ module.exports = {
     module: {
         loaders: [
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            { test: /\.ts?$/, loader: 'ts-loader'}
+            {test: /\.ts?$/, loader: 'ts-loader'}
+          //  {test: /\.js?$/, loader: 'babel'}
         ]
     },
     plugins: [
         //todo - add // Webpack Plugins
-//    var OccurenceOrderPlugin = webpack.optimize.OccurenceOrderPlugin;
-//var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-//var DedupePlugin   = webpack.optimize.DedupePlugin;
-//var DefinePlugin   = webpack.DefinePlugin;
+//var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;//var DefinePlugin   = webpack.DefinePlugin;
 //var BannerPlugin   = webpack.BannerPlugin;
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin('angular2', 'angular2.js')
     ]
 };
