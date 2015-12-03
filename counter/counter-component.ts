@@ -1,9 +1,10 @@
 import {Component, Inject} from 'angular2/angular2';
 import {CounterActions} from './counter-actions';
+import {CounterStore} from "./counter-store";
 
 @Component({
     selector: 'counter',
-    providers: [CounterActions],
+    providers: [CounterActions, CounterStore],
     template: `
   <p>
     Clicked: {{ counter }} times
@@ -16,9 +17,16 @@ import {CounterActions} from './counter-actions';
 })
 export class Counter {
     private counterActions;
+    private counterStore;
 
-    constructor(@Inject(CounterActions)counterActions:CounterActions) {
+    constructor(
+        @Inject(CounterActions)counterActions:CounterActions,
+        @Inject(CounterStore)counterStore:CounterStore
+    ) {
         this.counterActions = counterActions;
+        this.counterStore = counterStore;
+       // this.counterStore.
+
     }
 
     increment() {
