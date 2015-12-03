@@ -15,19 +15,9 @@ export class CounterActions {
         this.dispatch();
     }
 
-    incrementIfOdd() {
-        if (this.counter % 2 === 1) {
-            this.counter += 1;
-        }
+    reset() {
+        this.counter = 0;
         this.dispatch();
-    }
-
-    //TOOD - use funky zone.js
-    incrementAsync(delay) {
-        setTimeout(() => {
-            this.counter += 1;
-            this.dispatch();
-        }, delay);
     }
 
     private dispatch() {
