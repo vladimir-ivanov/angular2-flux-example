@@ -5,7 +5,7 @@ import {Component, Inject,
 @Component({
     selector: 'login-page',
     directives: <Array<any>>[FORM_DIRECTIVES, NgIf, NgModel, CORE_DIRECTIVES],
-    templateUrl: './forms/login-page.html'
+    templateUrl: './src/forms/login-page.html'
 })
 export class LoginPage {
     loginForm:ControlGroup;
@@ -19,7 +19,7 @@ export class LoginPage {
     }
 
     doLogin(event) {
-        console.log(this.model);
+        console.log('model is', this.model);
         event.preventDefault();
     }
 }
