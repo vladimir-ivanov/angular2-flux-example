@@ -19,6 +19,9 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.46",
+    "ng2-redux": "^2.0.0",
+    "redux": "^3.0.4",
+    "reflect-metadata": "^0.1.2",
     "ts-loader": "^0.7.2",
     "zone.js": "0.5.x"
   }
