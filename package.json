@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.46",
-    "ng2-redux": "2.0.0-alpha.3",
-    "redux-thunk": "^1.0.0",
+    "flux": "^2.1.1",
+    "reflect-metadata": "^0.1.2",
     "ts-loader": "^0.7.2",
     "zone.js": "0.5.x"
   }
