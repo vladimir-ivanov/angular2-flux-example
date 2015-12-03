@@ -1,4 +1,4 @@
-import dispatcher from '../dispatcher';
+//import dispatcher from '../dispatcher';
 
 export const UPDATE_COUNTER = 'UPDATE_COUNTER';
 
@@ -31,9 +31,9 @@ export class CounterActions {
     }
 
     private dispatch() {
-        dispatcher.dispatch({
-            type: 'INCREMENT_COUNTER',
-            data: this.counter
-        });
+        //dispatcher.dispatch({
+        //    type: 'INCREMENT_COUNTER',
+        //    data: this.counter
+        //});
     }
 }

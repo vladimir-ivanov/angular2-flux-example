@@ -3,6 +3,7 @@ import {CounterActions} from './counter-actions';
 
 @Component({
     selector: 'counter',
+    providers: [CounterActions],
     template: `
   <p>
     Clicked: {{ counter }} times
@@ -14,25 +15,25 @@ import {CounterActions} from './counter-actions';
   `
 })
 export class Counter {
-    private actions:CounterActions;
+    private counterActions;
 
-    constructor(@Inject(CounterActions) counterActions:CounterActions) {
-        this.actions = counterActions;
+    constructor(@Inject(CounterActions)counterActions:CounterActions) {
+        this.counterActions = counterActions;
     }
 
     increment() {
-        this.actions.increment();
+        this.counterActions.increment();
     }
 
     decrement() {
-        this.actions.decrement();
+        this.counterActions.decrement();
     }
 
     incrementIfOdd() {
-        this.actions.incrementIfOdd();
+        this.counterActions.incrementIfOdd();
     }
 
     incrementAsync() {
-        this.actions.incrementAsync(1000);
+        this.counterActions.incrementAsync(1000);
     }
 }

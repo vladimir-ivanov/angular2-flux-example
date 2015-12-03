@@ -4,15 +4,12 @@ module.exports = {
     entry: {
         app: './app.ts',
         angular2: [
-            // Angular 2 Deps
-            //   '@reactivex/rxjs',
-            'zone.js',
+          //  'zone.js',
             'reflect-metadata',
-            // to ensure these modules are grouped together in one file
             'angular2/angular2',
-            'angular2/core',
-            'angular2/router',
-            'angular2/http'
+           // 'angular2/core',
+         //   'angular2/router',
+        //    'angular2/http'
         ]
     },
     devtool: 'source-map',
@@ -35,8 +32,8 @@ module.exports = {
         //todo - add // Webpack Plugins
 //var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;//var DefinePlugin   = webpack.DefinePlugin;
 //var BannerPlugin   = webpack.BannerPlugin;
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin(),
+//        new webpack.optimize.OccurenceOrderPlugin(),
+//        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.CommonsChunkPlugin('angular2', 'angular2.js')
     ]
 };
