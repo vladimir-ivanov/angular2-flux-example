@@ -1,6 +1,6 @@
 <form [(ng-form-model)]="loginForm" (submit)="doLogin($event)">
     <fieldset>
-        <legend>Basic Form Example</legend>
+        <legend>Enter your Details</legend>
         <div class="form-group">
             <label *ng-if="model.email" for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
@@ -8,7 +8,7 @@
                    ng-control="email">
         </div>
         <div class="form-group">
-            <label  *ng-if="model.password" for="exampleInputPassword1">Password</label>
+            <label *ng-if="model.password" for="exampleInputPassword1">Password</label>
             <input type="password" ng-control="password"
                    [(ng-model)]="model.password"
                    class="form-control" id="exampleInputPassword1"

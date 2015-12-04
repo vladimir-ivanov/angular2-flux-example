@@ -5,7 +5,7 @@ import {Component, Inject,
 @Component({
     selector: 'login-page',
     directives: <Array<any>>[FORM_DIRECTIVES, NgIf, NgModel, CORE_DIRECTIVES],
-    templateUrl: './src/forms/login-page.html'
+    templateUrl: './src/login/login-page.html'
 })
 export class LoginPage {
     loginForm:ControlGroup;

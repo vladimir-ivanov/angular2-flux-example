@@ -5,17 +5,9 @@ import {CounterStore} from "./counter-store";
 @Component({
     selector: 'counter',
     providers: [CounterActions, CounterStore],
-    template: `
-    <h4>Flux Example</h4>
-  <p>
-    Counter: {{ counter }}
-    <button (click)="increment()" class="btn btn-default btn-xs">+</button>
-    <button (click)="decrement()" class="btn btn-default btn-xs">-</button>
-    <button (click)="reset()" class="btn btn-default  btn-xs">Reset</button>
-  </p>
-  `
+    templateUrl: './src/counter/counter.html'
 })
-export class Counter {
+export class CounterPage {
     counter:number = 0;
 
     private counterActions;
