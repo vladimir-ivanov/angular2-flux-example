@@ -4,11 +4,13 @@ import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES,
 import {LoginPage} from "../login/login-page";
 import {CounterPage} from "../counter/counter-page-component";
 import {HomePage} from "../home/home-page";
+import {ItemsListComponent} from "../items-list/items-list-component";
 
 const routes = [
     {path: '/', component: HomePage, as: 'Home'},
     {path: '/login', component: LoginPage, as: 'Login'},
-    {path: '/counter', component: CounterPage, as: 'Counter'}
+    {path: '/counter', component: CounterPage, as: 'Counter'},
+    {path: '/items-list', component: ItemsListComponent, as: 'ItemsList'}
 ];
 
 @Component({

@@ -11,8 +11,8 @@ export class LoginPage {
     loginForm:ControlGroup;
     model = {email: 'x@yahoo.com', password: ''};
 
-    constructor(@Inject(FormBuilder) private fb:FormBuilder) {// various way to inject here
-        this.loginForm = fb.group({
+    constructor(@Inject(FormBuilder) private formBuilder:FormBuilder) {// various way to inject here
+        this.loginForm = formBuilder.group({
             email: ["", Validators.required],
             password: ["", Validators.required]
         });
