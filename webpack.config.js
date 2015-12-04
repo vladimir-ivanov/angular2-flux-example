@@ -4,6 +4,7 @@ module.exports = {
     entry: {
         app: './src/app.ts',
         angular2: [
+            'es6-shim',
             'zone.js',
             'reflect-metadata',
             'angular2/angular2',

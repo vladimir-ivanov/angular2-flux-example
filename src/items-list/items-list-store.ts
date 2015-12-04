@@ -7,9 +7,14 @@ declare interface Payload {
     data: any
 }
 
+declare interface Item {
+    id: string;
+    name: string;
+}
+
 export class ItemsListStore extends EventEmitter<string> {
-    //use immutable - define interface
-    private items:Array<{id: string; name: string;}> = [
+    //use immutable - define interface?
+    private items:Array<Item> = [
         {
             id: 'ddd',
             name: 'item 1'
@@ -31,8 +36,9 @@ export class ItemsListStore extends EventEmitter<string> {
 
                 case REMOVE_ITEM:
                     let itemIndex = this.items.find(item => item.id === payload.data);
+
                     if(itemIndex !== undefined) {
-                        this.items.splice(itemIndex, 1);
+                        this.items.splice(this.items.indexOf(itemIndex), 1);
                     }
 
                     break;
