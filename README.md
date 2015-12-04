@@ -1,5 +1,11 @@
-# angular2-webpack-form-example 
-Angular2 Flux (using Facebook flux Dispatcher) and a simple form example
+# angular2 flux example
+Angular2 Flux example
+Core Libraries involved:
+1. Webpack
+2. load-ts
+3. typescript
+4. facebook flux.Dispatcher (only)
+
 
 # Getting started
 
