@@ -18,7 +18,7 @@ declare module Flux {
      *     var typedDispatcher = new flux.Dispatcher<MyCustomActionType>()
      *     class DerivedDispatcher extends flux.Dispatcher<MyCustomActionType> { }
      */
-    export class Dispatcher {
+    export class Dispatcher<T> {
 
         /**
          * Create an instance of the Dispatcher class to use throughout the application.
@@ -36,7 +36,7 @@ declare module Flux {
          * Registers a callback that will be invoked with every payload sent to the dispatcher.
          * Returns a string token to identify the callback to be used with waitFor() or unregister.
          */
-        register(callback: (payload) => void): string;
+        register(callback: (payload:T) => void): string;
 
         /**
          * Unregisters a callback with the given ID token
