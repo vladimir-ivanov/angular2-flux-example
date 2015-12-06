@@ -10,7 +10,7 @@ import {
     describe,
     TestComponentBuilder
 } from 'angular2/testing';
-import { Component, provide, FormBuilder, Injector} from 'angular2/angular2';
+import { Component, FormBuilder} from 'angular2/angular2';
 
 import { LoginPage } from './../../src/login/login-page.ts';
 

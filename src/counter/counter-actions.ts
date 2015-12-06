@@ -3,7 +3,7 @@ import dispatcher from '../dispatcher';
 export const UPDATE_COUNTER = 'UPDATE_COUNTER';
 
 export class CounterActions {
-    counter = 0;
+    private counter = 0;
 
     increment() {
         this.counter += 1;
