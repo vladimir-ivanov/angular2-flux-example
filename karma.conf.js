@@ -8,10 +8,12 @@ module.exports = function (config) {
             'node_modules/zone.js/dist/jasmine-patch.js',
             'node_modules/reflect-metadata/Reflect.js',
             'node_modules/es6-shim/es6-shim.js',
+        //    { pattern: 'dom-adapter-config.js', watched: false },
             {pattern: 'test/**/*-spec.ts', watched: false}
         ],
         exclude: [],
         preprocessors: {
+      //      'dom-adapter-config.js': ['webpack'],
             'test/**/*-spec.ts': ['webpack', 'sourcemap']
         },
         webpack: {

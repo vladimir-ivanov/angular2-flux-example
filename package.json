@@ -33,7 +33,7 @@
     "webpack-vendor-chunk-plugin": "^1.0.0"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.47",
+    "angular2": "^2.0.0-alpha.48",
     "es6-shim": "^0.33.13",
     "flux": "^2.1.1",
     "reflect-metadata": "^0.1.2",

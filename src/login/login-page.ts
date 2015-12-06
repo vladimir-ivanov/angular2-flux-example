@@ -11,7 +11,7 @@ export class LoginPage {
     loginForm:ControlGroup;
     model = {email: 'x@yahoo.com', password: ''};
 
-    constructor(@Inject(FormBuilder) private formBuilder:FormBuilder) {// various way to inject here
+    constructor(@Inject(FormBuilder) formBuilder:FormBuilder) {
         this.loginForm = formBuilder.group({
             email: ["", Validators.required],
             password: ["", Validators.required]
@@ -19,7 +19,7 @@ export class LoginPage {
     }
 
     doLogin(event) {
-        console.log('model is', this.model);
+     //   console.log('model is', this.model);
         event.preventDefault();
     }
 }
