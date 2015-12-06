@@ -10,7 +10,7 @@ import {
     describe,
     TestComponentBuilder
 } from 'angular2/testing';
-import { Component, provide, FormBuilder, Injector, Validators} from 'angular2/angular2';
+import { Component, provide, FormBuilder, Injector} from 'angular2/angular2';
 
 import { LoginPage } from './../../src/login/login-page.ts';
 
@@ -18,12 +18,7 @@ let service:any;
 let formBuilder:FormBuilder;
 
 describe('LoginPageComponent', () => {
-    beforeEachProviders(() => [FormBuilder, Validators]);
-
-    beforeEach(() => {
-      let someSpy = spyOn(Validators, 'required');
-        someSpy = 'hijacked';
-    });
+    beforeEachProviders(() => [FormBuilder]);
 
     beforeEach(inject([FormBuilder], fb => {
         formBuilder = fb;
@@ -60,7 +55,7 @@ describe('LoginPageComponent', () => {
             spyOn(event, 'preventDefault');
             service.doLogin(event);
 
-            expect(event.preventDefault.calls.count()).toEqual(1);
+            expect((<any>event.preventDefault).calls.count()).toEqual(1);
         });
     });
 });
