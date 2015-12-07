@@ -1,17 +1,20 @@
 {
-  "name": "angular2-webpack-typescript",
-  "version": "0.0.1",
+  "name": "angular2-flux-karma",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/karma start",
+    "webpack-watch": "./node_modules/.bin/webpack --watch",
+    "start-server": "./node_modules/.bin/http-server"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "vladimir-ivanov@gmail.com",
+  "license": "BSD",
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "dedupe-plugin": "^1.0.0",
+    "http-server": "^0.8.5",
     "jasmine-core": "2.4.1",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.2",

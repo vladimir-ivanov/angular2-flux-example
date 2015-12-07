@@ -8,21 +8,28 @@ Currently added a test of a Component (having a form inside), but more Service/ 
 
 ## Getting started
 
-To install dependencies and start compiling:
+1. Install dependencies and start compiling:
 
 ```
 npm install
 ```
-Then run ./node_modules/.bin/webpack --watch
+2. Optionally run if you want to watch for changes in the file system - e.g. when editing
 
-and open index.html in any browser
+```
+     npm webpack-watcher
+```
+
+3. Optionally start the static resources server (and visit http://localhost:8080
+
+```
+     npm start-server
+```
+
+or use a server of your choice and open index.html in any browser
 
 ## Todo
-* Add gulp
-or simple npm scripts if they suffice
 * Protractor?
 * Figure out clear strategy about css structuring
-Think of utilizing styles in Components for certain thingw
 * add immutables.js
 * write more tests - to cover provider overwrites
 * add async calls via http - for the sake of testing
