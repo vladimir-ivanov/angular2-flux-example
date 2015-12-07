@@ -7,7 +7,7 @@ import {CounterStore} from "./counter-store";
     providers: [CounterActions, CounterStore],
     templateUrl: './src/counter/counter.html'
 })
-export class CounterPage {
+export class CounterPageComponent {
     counter:number = 0;
 
     private counterActions;

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/karma start",
-    "webpack-watch": "./node_modules/.bin/webpack --watch",
-    "start-server": "./node_modules/.bin/http-server"
+    "watch": "./node_modules/.bin/webpack --watch",
+    "start": "./node_modules/.bin/http-server"
   },
   "author": "vladimir-ivanov@gmail.com",
   "license": "BSD",
