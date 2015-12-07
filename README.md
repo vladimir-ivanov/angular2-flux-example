@@ -16,13 +16,13 @@ npm install
 2. Optionally run if you want to watch for changes in the file system - e.g. when editing
 
 ```
-     npm webpack-watcher
+     npm webpack
 ```
 
 3. Optionally start the static resources server (and visit http://localhost:8080
 
 ```
-     npm start-server
+     npm start
 ```
 
 or use a server of your choice and open index.html in any browser
