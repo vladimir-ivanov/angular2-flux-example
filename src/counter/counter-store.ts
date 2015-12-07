@@ -1,10 +1,10 @@
-import {EventEmitter} from 'angular2/angular2';
-import {UPDATE_COUNTER} from './counter-actions';
-import dispatcher from '../dispatcher';
+import {EventEmitter} from "angular2/angular2";
+import {UPDATE_COUNTER} from "./counter-actions";
+import dispatcher from "../dispatcher";
 
 declare interface Payload {
     type: string;
-    data: any
+    data: any;
 }
 
 export class CounterStore extends EventEmitter<string> {
@@ -17,9 +17,11 @@ export class CounterStore extends EventEmitter<string> {
                 case UPDATE_COUNTER:
                     this.counter = payload.data;
                     break;
+                default:
+                    break;
             }
 
-            this.emit('changed');
+            this.emit("changed");
         });
     }
 

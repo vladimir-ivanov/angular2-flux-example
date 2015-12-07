@@ -1,61 +1,75 @@
-import {BrowserDomAdapter} from 'angular2/src/platform/browser/browser_adapter';
+import {BrowserDomAdapter} from "angular2/src/platform/browser/browser_adapter";
 BrowserDomAdapter.makeCurrent();
 
 import {
     beforeEachProviders,
     beforeEach,
-    afterEach,
     inject,
     it,
     describe,
     TestComponentBuilder
-} from 'angular2/testing';
-import { Component, FormBuilder} from 'angular2/angular2';
+} from "angular2/testing";
+import {provide} from "angular2/angular2";
+import {CounterPageComponent} from "../../src/counter/counter-page-component";
+import {CounterStore} from "../../src/counter/counter-store";
+import {CounterActions} from "../../src/counter/counter-actions";
 
-import { LoginPage } from './../../src/login/login-page.ts';
+describe("CounterPageComponent", () => {
+    let component:any;
+    let actions:any;
+    let store:any;
 
-let service:any;
-let formBuilder:FormBuilder;
-
-describe('LoginPageComponent', () => {
-    beforeEachProviders(() => [FormBuilder]);
-
-    beforeEach(inject([FormBuilder], fb => {
-        formBuilder = fb;
-
-        spyOn(formBuilder, 'group').and.returnValue('form builder value');
-    }));
+    beforeEachProviders(() => [CounterActions, CounterStore]);
 
     beforeEach(inject([TestComponentBuilder], tcb => {
-        tcb.overrideTemplate(LoginPage, '<div></div>').createAsync(LoginPage).then(f => {
-            service = f.componentInstance;
-        });
+        store = new CounterStore();
+        actions = new CounterActions();
+
+        spyOn(store, "subscribe");
+        spyOn(store, "getCounter").and.returnValue(33);
+        spyOn(actions, "increment");
+        spyOn(actions, "decrement");
+        spyOn(actions, "reset");
+
+        tcb.overrideTemplate(CounterPageComponent, "<sec></sec>")
+            .overrideProviders(CounterPageComponent, [
+                provide(CounterActions, {useValue: actions}),
+                provide(CounterStore, {useValue: store}) // or useFactory: () => {let counterStore = new CounterStore() //spy and return counterStore}
+            ])
+            .createAsync(CounterPageComponent)
+            .then(f => component = f.componentInstance);
     }));
 
-    it('should initialize correctly its properties', () => {
-        expect(service.model).toEqual({email: 'x@yahoo.com', password: ''});
-        expect(service.loginForm).toEqual('form builder value');
+    describe("constructor()", () => {
+        it("should subscribe to the counterStore", ()  => {
+            let subscribeCallback = store.subscribe.calls.argsFor(0)[0];
+            subscribeCallback();
 
-        let formBulderGroupArgs = (<any>formBuilder.group).calls.argsFor(0)[0];
-
-        expect(formBulderGroupArgs.email.length).toEqual(2);
-        expect(formBulderGroupArgs.email[0]).toEqual('');
-        expect(typeof formBulderGroupArgs.email[1]).toEqual('function');
-        expect(formBulderGroupArgs.password.length).toEqual(2);
-        expect(formBulderGroupArgs.password[0]).toEqual('');
-        expect(typeof formBulderGroupArgs.password[1]).toEqual('function');
+            expect(component.counter).toEqual(33);
+        });
     });
 
-    describe('doLogin()', () => {
-        it('should call event.preventDefault()', () => {
-            var event = {
-                preventDefault: () => {}
-            };
+    describe("increment()", () => {
+        it("should proxy to counterActions.increment()", () => {
+            component.increment();
 
-            spyOn(event, 'preventDefault');
-            service.doLogin(event);
+            expect(actions.increment.calls.count()).toEqual(1);
+        });
+    });
 
-            expect((<any>event.preventDefault).calls.count()).toEqual(1);
+    describe("decrement()", () => {
+        it("should proxy to counterActions.decrement()", () => {
+            component.decrement();
+
+            expect(actions.decrement.calls.count()).toEqual(1);
+        });
+    });
+
+    describe("reset()", () => {
+        it("should proxy to counterActions.reset()", () => {
+            component.reset();
+
+            expect(actions.reset.calls.count()).toEqual(1);
         });
     });
 });

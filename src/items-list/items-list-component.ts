@@ -1,14 +1,14 @@
-import {Component, Inject, CORE_DIRECTIVES, NgFor} from 'angular2/angular2';
+import {Component, Inject, CORE_DIRECTIVES, NgFor} from "angular2/angular2";
 import {ItemsListActions} from "./items-list-actions";
 import {ItemsListStore} from "./items-list-store";
 import {Item} from "./item-component";
 import {AddItemComponent} from "./add-item-component";
 
 @Component({
-    selector: 'items-list',
+    selector: "items-list",
     directives: <Array<any>>[CORE_DIRECTIVES, NgFor, Item, AddItemComponent],
     providers: [ItemsListActions, ItemsListStore],
-    templateUrl: './src/items-list/items-list.html'
+    templateUrl: "./src/items-list/items-list.html"
 })
 export class ItemsListComponent {
     actions:ItemsListActions;

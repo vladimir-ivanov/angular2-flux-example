@@ -1,8 +1,8 @@
 ///<reference path="../typings/es6-shim.d.ts"/>
-import dispatcher from '../dispatcher';
+import dispatcher from "../dispatcher";
 
-export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const ADD_ITEM = 'ADD_ITEM';
+export const REMOVE_ITEM = "REMOVE_ITEM";
+export const ADD_ITEM = "ADD_ITEM";
 
 export class ItemsListActions {
     addItem(name) {

@@ -1,11 +1,11 @@
-import {Component, Inject} from 'angular2/angular2';
-import {CounterActions} from './counter-actions';
+import {Component, Inject} from "angular2/angular2";
+import {CounterActions} from "./counter-actions";
 import {CounterStore} from "./counter-store";
 
 @Component({
-    selector: 'counter',
+    selector: "counter",
     providers: [CounterActions, CounterStore],
-    templateUrl: './src/counter/counter.html'
+    templateUrl: "./src/counter/counter.html"
 })
 export class CounterPageComponent {
     counter:number = 0;

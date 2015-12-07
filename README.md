@@ -27,14 +27,17 @@ npm install
 
 or use a server of your choice and open index.html in any browser
 
+## Karma tests contain spying in:
+* example of Component testing: TestComponentBuilder.overrideProviders() and TestComponentBuilder.overrideTemplate() (counter module)
+* example of testing Components with FormBuilder (login module)
+* example of testing actions (counter module)
+* example of testing stores (counter module)
+
+## Typescript tslint options
+
 ## Todo
 * Protractor?
 * Figure out clear strategy about css structuring
 * add immutables.js
-* write more tests - to cover provider overwrites
 * add async calls via http - for the sake of testing
-* define tslint rules
 * find a way to put templates in templateCache (or equivalent in ng2 when packaging for distribution)
-* as above but for styles (in Components)
-* unify single vs double quotes (in favour of double quotes with ng2 unlike ng1 or other js frameworks).
-

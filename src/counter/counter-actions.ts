@@ -1,6 +1,6 @@
-import dispatcher from '../dispatcher';
+import dispatcher from "../dispatcher";
 
-export const UPDATE_COUNTER = 'UPDATE_COUNTER';
+export const UPDATE_COUNTER = "UPDATE_COUNTER";
 
 export class CounterActions {
     private counter = 0;

@@ -12,7 +12,7 @@ import {
 } from 'angular2/testing';
 import {Injector} from 'angular2/angular2';
 
-import { CounterStore } from './../../src/counter/counter-store';
+import {CounterStore} from './../../src/counter/counter-store';
 import dispatcher from './../../src/dispatcher';
 import {UPDATE_COUNTER} from "../../src/counter/counter-actions";
 

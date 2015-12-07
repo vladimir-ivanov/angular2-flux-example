@@ -6,13 +6,13 @@ import {
     ControlGroup,
     FORM_DIRECTIVES,
     CORE_DIRECTIVES
-} from 'angular2/angular2';
+} from "angular2/angular2";
 import {ItemsListActions} from "./items-list-actions";
 
 @Component({
-    selector: 'add-item',
+    selector: "add-item",
     providers: [ItemsListActions],
-    templateUrl: './src/items-list/add-item.html'
+    templateUrl: "./src/items-list/add-item.html"
 })
 export class AddItemComponent {
     actions:ItemsListActions;
@@ -31,6 +31,6 @@ export class AddItemComponent {
     addItem($event) {
         $event.preventDefault();
 
-        this.actions.addItem(this.addItemForm.controls['name'].value);
+        this.actions.addItem(this.addItemForm.controls["name"].value);
     }
 }
