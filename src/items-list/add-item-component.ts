@@ -16,7 +16,7 @@ import {ItemsListActions} from "./items-list-actions";
 })
 export class AddItemComponent {
     actions:ItemsListActions;
-    addItemForm:ControlGroup;
+    addItemForm;
 
     constructor(
         @Inject(ItemsListActions) actions,
