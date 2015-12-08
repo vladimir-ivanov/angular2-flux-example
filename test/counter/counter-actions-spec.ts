@@ -32,7 +32,7 @@ describe("CounterActions", () => {
             actions.increment();
             actions.increment();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(2)).toEqual([Object({type: "UPDATE_COUNTER", data: 3})]);
+            expect((<any>dispatcher.dispatch).calls.argsFor(2)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
         });
     });
 
@@ -43,23 +43,21 @@ describe("CounterActions", () => {
             actions.increment();
             actions.decrement();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(3)).toEqual([Object({type: "UPDATE_COUNTER", data: 2})]);
+            expect((<any>dispatcher.dispatch).calls.argsFor(3)).toEqual([Object({type: "UPDATE_COUNTER", data: -1})]);
 
             actions.decrement();
-            expect((<any>dispatcher.dispatch).calls.argsFor(4)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
+            expect((<any>dispatcher.dispatch).calls.argsFor(4)).toEqual([Object({type: "UPDATE_COUNTER", data: -1})]);
         });
     });
 
     describe("reset()", () => {
         it("should call dispatcher.dispatch()", () => {
             actions.increment();
-            actions.increment();
-            actions.increment();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(2)).toEqual([Object({type: "UPDATE_COUNTER", data: 3})]);
+            expect((<any>dispatcher.dispatch).calls.argsFor(0)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
 
             actions.reset();
-            expect((<any>dispatcher.dispatch).calls.argsFor(3)).toEqual([Object({type: "UPDATE_COUNTER", data: 0})]);
+            expect((<any>dispatcher.dispatch).calls.argsFor(1)).toEqual([Object({type: "RESET_COUNTER", data: null})]);
         });
     });
 });

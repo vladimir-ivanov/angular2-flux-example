@@ -1,29 +1,28 @@
 import dispatcher from "../dispatcher";
 
 export const UPDATE_COUNTER = "UPDATE_COUNTER";
+export const RESET_COUNTER = "RESET_COUNTER";
 
 export class CounterActions {
-    private counter = 0;
-
     increment() {
-        this.counter += 1;
-        this.dispatch();
+        this.updateOffsetDispatch(1);
     }
 
     decrement() {
-        this.counter -= 1;
-        this.dispatch();
+        this.updateOffsetDispatch(-1);
     }
 
     reset() {
-        this.counter = 0;
-        this.dispatch();
+        dispatcher.dispatch({
+            type: RESET_COUNTER,
+            data: null
+        });
     }
 
-    private dispatch() {
+    private updateOffsetDispatch(offset:number) {
         dispatcher.dispatch({
             type: UPDATE_COUNTER,
-            data: this.counter
+            data: offset
         });
     }
 }

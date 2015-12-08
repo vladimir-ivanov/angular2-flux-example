@@ -40,11 +40,20 @@ describe("CounterPageComponent", () => {
             .then(f => component = f.componentInstance);
     }));
 
-    describe("constructor()", () => {
+    describe("ngOnInit()", () => {
+        beforeEach(() => {
+            component.ngOnInit();
+        });
+
+        it("should call getCounter() to get initial value", ()  => {
+            expect(store.getCounter.calls.count()).toEqual(1);
+        });
+
         it("should subscribe to the counterStore", ()  => {
             let subscribeCallback = store.subscribe.calls.argsFor(0)[0];
             subscribeCallback();
 
+            expect(store.getCounter.calls.count()).toEqual(2);
             expect(component.counter).toEqual(33);
         });
     });
