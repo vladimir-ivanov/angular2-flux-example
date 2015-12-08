@@ -4,13 +4,10 @@ BrowserDomAdapter.makeCurrent();
 import {
     beforeEachProviders,
     beforeEach,
-    afterEach,
     inject,
     it,
     describe,
-    TestComponentBuilder
 } from "angular2/testing";
-import {Injector} from "angular2/angular2";
 
 import {CounterStore} from "./../../src/counter/counter-store";
 import dispatcher from "./../../src/dispatcher";

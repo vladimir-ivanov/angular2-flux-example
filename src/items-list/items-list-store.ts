@@ -1,20 +1,15 @@
 import {EventEmitter} from "angular2/angular2";
+import {List} from "immutable";
 import dispatcher from "../dispatcher";
 import {ADD_ITEM, REMOVE_ITEM} from "./items-list-actions";
 
 declare interface Payload {
     type: string;
-    data: any
-}
-
-declare interface Item {
-    id: string;
-    name: string;
+    data: any;
 }
 
 export class ItemsListStore extends EventEmitter<string> {
-    // use immutable - define interface?
-    private items:Array<Item> = [
+    private itemsStore = List([
         {
             id: "ddd",
             name: "item 1"
@@ -23,34 +18,38 @@ export class ItemsListStore extends EventEmitter<string> {
             id: "222",
             name: "item 2"
         }
-    ];
+    ]);
 
     constructor() {
         super();
 
         dispatcher.register((payload:Payload) => {
+            let oldItemsStore = this.itemsStore;
+
             switch (payload.type) {
                 case ADD_ITEM:
-                    this.items.push(payload.data);
+                    this.itemsStore = this.itemsStore.push(payload.data);
                     break;
 
                 case REMOVE_ITEM:
-                    let itemIndex = this.items.find(item => item.id === payload.data);
+                    let itemIndex = this.itemsStore.find(item => item.id === payload.data);
 
                     if (itemIndex !== undefined) {
-                        this.items.splice(this.items.indexOf(itemIndex), 1);
+                        this.itemsStore = this.itemsStore.delete(this.itemsStore.indexOf(itemIndex));
                     }
-
                     break;
+
                 default:
                     break;
             }
 
-            this.emit("changed");
+            if (!this.itemsStore.equals(oldItemsStore)) {
+                this.emit("changed");
+            }
         });
     }
 
     getItems() {
-        return this.items;
+        return this.itemsStore.toArray();
     }
 }

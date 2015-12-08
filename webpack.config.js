@@ -6,6 +6,8 @@ module.exports = {
         angular2: [
             'es6-shim',
             'zone.js',
+            'flux',
+            'immutable',
             'reflect-metadata',
             'angular2/angular2',
             'angular2/router',
