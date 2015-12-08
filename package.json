@@ -1,15 +1,15 @@
 {
   "name": "angular2-flux-karma",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {
     "test": "./node_modules/.bin/karma start",
     "watch": "./node_modules/.bin/webpack --watch",
     "start": "./node_modules/.bin/http-server"
   },
   "author": "vladimir-ivanov@gmail.com",
-  "license": "BSD",
+  "license": "Apache-2.0",
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",

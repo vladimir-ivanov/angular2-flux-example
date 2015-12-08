@@ -1,15 +1,15 @@
-import {Component, Inject, Input} from 'angular2/angular2';
+import {Component, Inject, Input} from "angular2/angular2";
 import {ItemsListActions} from "./items-list-actions";
 
 @Component({
-    selector: 'item',
+    selector: "item",
     providers: [ItemsListActions],
-    templateUrl: './src/items-list/item.html'
+    templateUrl: "./src/items-list/item.html"
 })
 export class Item {
     actions: ItemsListActions;
 
-    @Input('details')
+    @Input("details")
     details;
 
     constructor(@Inject(ItemsListActions) actions) {

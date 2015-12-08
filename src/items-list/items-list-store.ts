@@ -1,5 +1,5 @@
-import {EventEmitter} from 'angular2/angular2';
-import dispatcher from '../dispatcher';
+import {EventEmitter} from "angular2/angular2";
+import dispatcher from "../dispatcher";
 import {ADD_ITEM, REMOVE_ITEM} from "./items-list-actions";
 
 declare interface Payload {
@@ -13,15 +13,15 @@ declare interface Item {
 }
 
 export class ItemsListStore extends EventEmitter<string> {
-    //use immutable - define interface?
+    // use immutable - define interface?
     private items:Array<Item> = [
         {
-            id: 'ddd',
-            name: 'item 1'
+            id: "ddd",
+            name: "item 1"
         },
         {
-            id: '222',
-            name: 'item 2'
+            id: "222",
+            name: "item 2"
         }
     ];
 
@@ -37,14 +37,16 @@ export class ItemsListStore extends EventEmitter<string> {
                 case REMOVE_ITEM:
                     let itemIndex = this.items.find(item => item.id === payload.data);
 
-                    if(itemIndex !== undefined) {
+                    if (itemIndex !== undefined) {
                         this.items.splice(this.items.indexOf(itemIndex), 1);
                     }
 
                     break;
+                default:
+                    break;
             }
 
-            this.emit('changed');
+            this.emit("changed");
         });
     }
 
