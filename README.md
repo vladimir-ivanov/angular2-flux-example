@@ -2,8 +2,11 @@
 Angular2 Flux + Webpack + Karma example
 
 Includes karma configuration to run with typescript files and angular2/testing
+
 Uses facebook flux.Dispatcher (only)
+
 Currently added a test of a Component (having a form inside), but more Service/ Pipe tests will follow soon.
+
 Uses immutable.js collections for more efficient change detection in stores
 
 
@@ -14,6 +17,7 @@ Uses immutable.js collections for more efficient change detection in stores
 ```
 npm install
 ```
+
 2. Optionally run if you want to watch for changes in the file system - e.g. when editing
 
 ```
