@@ -12,6 +12,7 @@ export class CounterStore extends EventEmitter<string> {
 
     constructor() {
         super();
+
         dispatcher.register((payload:Payload) => {
             switch (payload.type) {
                 case UPDATE_COUNTER:
