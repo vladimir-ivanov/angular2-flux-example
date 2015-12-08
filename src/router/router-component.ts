@@ -3,7 +3,7 @@ import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES,
     LocationStrategy, HashLocationStrategy, Router} from "angular2/router";
 import {LoginPage} from "../login/login-page";
 import {CounterPageComponent} from "../counter/counter-page-component";
-import {HomePage} from "../home/home-page";
+import {HomePage} from "../home/home-page-component";
 import {ItemsListComponent} from "../items-list/items-list-component";
 
 declare type Routes = Array<{
