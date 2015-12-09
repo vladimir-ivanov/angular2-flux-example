@@ -1,19 +1,26 @@
 import {Component, Inject, NgFor, NgStyle} from "angular2/angular2";
-import {Http, HTTP_PROVIDERS} from "angular2/http";
+import {HomePageActions} from "./home-page-actions";
+import {HomePageStore} from "./home-page-store";
+import {OnInit} from "angular2/core";
 
 @Component({
     selector: "home",
-    providers: [Http],
+    providers: [HomePageActions, HomePageStore],
     directives: <any>[NgFor, NgStyle],
-    viewProviders: [HTTP_PROVIDERS],
     templateUrl: "./src/home/home-page.html",
     styles: [],
 })
 
-export class HomePage {
+export class HomePageComponent implements OnInit {
+    store;
     colors;
 
-    constructor(@Inject(Http)http:Http) {
-        http.get('api-mock/colors.json').subscribe(data => this.colors = data.json());
+    constructor(@Inject(HomePageActions)actions, @Inject(HomePageStore)store) {
+        this.store = store;
+        actions.initializeData();
+    }
+
+    ngOnInit() {
+        this.store.subscribe(() => this.colors = this.store.getColors());
     }
 }

@@ -5,7 +5,7 @@
   "main": "src/app.ts",
   "scripts": {
     "test": "./node_modules/.bin/karma start",
-    "watch": "./node_modules/.bin/webpack --watch",
+    "pack": "./node_modules/.bin/webpack --watch",
     "start": "./node_modules/.bin/http-server"
   },
   "author": "vladimir-ivanov@gmail.com",

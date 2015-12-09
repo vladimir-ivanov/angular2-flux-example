@@ -1,10 +1,9 @@
-import { Component, bootstrap, provide, Inject, NgFor} from "angular2/angular2";
-import {RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES,
-    LocationStrategy, HashLocationStrategy, Router} from "angular2/router";
+import { Component, Inject, NgFor} from "angular2/angular2";
+import {RouteConfig,  ROUTER_DIRECTIVES, Router} from "angular2/router";
 import {LoginPage} from "../login/login-page";
 import {CounterPageComponent} from "../counter/counter-page-component";
-import {HomePage} from "../home/home-page-component";
 import {ItemsListComponent} from "../items-list/items-list-component";
+import {HomePageComponent} from "../home/home-page-component";
 
 declare type Routes = Array<{
     path: string;
@@ -13,7 +12,7 @@ declare type Routes = Array<{
 }>;
 
 const routes:Routes = [
-    {path: "/", component: HomePage, as: "Home"},
+    {path: "/", component: HomePageComponent, as: "Home"},
     {path: "/login", component: LoginPage, as: "Login"},
     {path: "/counter", component: CounterPageComponent, as: "Counter"},
     {path: "/items-list", component: ItemsListComponent, as: "ItemsList"}

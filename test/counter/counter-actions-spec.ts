@@ -4,15 +4,12 @@ BrowserDomAdapter.makeCurrent();
 import {
     beforeEachProviders,
     beforeEach,
-    afterEach,
     inject,
     it,
     describe,
-    TestComponentBuilder
 } from "angular2/testing";
-import {Injector} from "angular2/angular2";
 
-import { CounterActions } from "./../../src/counter/counter-actions";
+import {CounterActions} from "./../../src/counter/counter-actions";
 import dispatcher from "./../../src/dispatcher";
 
 let actions:CounterActions;
