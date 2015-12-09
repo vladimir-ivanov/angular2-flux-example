@@ -5,11 +5,12 @@ import {Inject} from "angular2/core";
 export const FETCHED_DATA = "FETCHED_DATA";
 
 export class HomePageActions {
-    http: Http;
+    http:Http;
 
     constructor(@Inject(Http)http:Http) {
         this.http = http;
     }
+
     initializeData() {
         this.http.get("api-mock/colors.json").subscribe(data => {
             dispatcher.dispatch({
