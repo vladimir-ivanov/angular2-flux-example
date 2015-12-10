@@ -25,6 +25,7 @@ export class HomePageStore extends EventEmitter<string> {
                     break;
             }
 
+            //todo - this makes no sense - fix it :-)
             if (!this.store.equals(oldStore)) {
                 this.emit("changed");
             }

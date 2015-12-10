@@ -17,6 +17,16 @@ export class HomePageActions {
                 type: FETCHED_DATA,
                 data: data.json()
             });
+
+            setTimeout(
+                () => {
+                    dispatcher.dispatch({
+                        type: FETCHED_DATA,
+                        data: data.json()
+                    });
+                },
+                3000
+            );
         });
     }
 }
