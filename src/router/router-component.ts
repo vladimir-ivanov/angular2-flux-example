@@ -1,9 +1,12 @@
-import { Component, Inject, NgFor} from "angular2/angular2";
+import {Component, Inject} from "angular2/core";
+import {NgFor} from "angular2/common";
 import {RouteConfig,  ROUTER_DIRECTIVES, Router} from "angular2/router";
 import {LoginPage} from "../login/login-page";
 import {CounterPageComponent} from "../counter/counter-page-component";
 import {ItemsListComponent} from "../items-list/items-list-component";
 import {HomePageComponent} from "../home/home-page-component";
+import {RouterLink} from "angular2/src/router/router_link";
+import {RouterOutlet} from "angular2/src/router/router_outlet";
 
 declare type Routes = Array<{
     path: string;
@@ -21,7 +24,7 @@ const routes:Routes = [
 @Component({
     selector: "mainroot",
     templateUrl: "./src/router/navigation.html",
-    directives: <any>[ROUTER_DIRECTIVES, NgFor]
+    directives: <any>[ROUTER_DIRECTIVES, NgFor, RouterLink, RouterOutlet]
 })
 @RouteConfig(<any>routes)
 export class RouterComponent {

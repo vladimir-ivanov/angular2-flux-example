@@ -1,4 +1,4 @@
-import {EventEmitter} from "angular2/angular2";
+import {EventEmitter} from "angular2/core";
 import {List} from "immutable";
 import dispatcher from "../dispatcher";
 import {FETCHED_DATA} from "./home-page-actions";

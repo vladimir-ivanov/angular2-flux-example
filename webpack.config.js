@@ -9,9 +9,11 @@ module.exports = {
             'flux',
             'immutable',
             'reflect-metadata',
-            'angular2/angular2',
+            'angular2/core',
+            'angular2/common',
             'angular2/router',
-            'angular2/http'
+            'angular2/http',
+            'angular2/platform/browser'
         ]
     },
     devtool: 'source-map',

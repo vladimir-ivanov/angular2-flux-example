@@ -9,10 +9,10 @@ import {
     describe,
     TestComponentBuilder
 } from "angular2/testing";
-import {provide} from "angular2/angular2";
 import {CounterPageComponent} from "../../src/counter/counter-page-component";
 import {CounterStore} from "../../src/counter/counter-store";
 import {CounterActions} from "../../src/counter/counter-actions";
+import {provide} from "angular2/core";
 
 describe("CounterPageComponent", () => {
     let component:any;

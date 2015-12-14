@@ -1,7 +1,7 @@
-import {Component, Inject, NgFor, NgStyle} from "angular2/angular2";
+import {Component, Inject, OnInit} from "angular2/core";
 import {HomePageActions} from "./home-page-actions";
 import {HomePageStore} from "./home-page-store";
-import {OnInit} from "angular2/core";
+import {NgFor, NgStyle} from "angular2/common";
 
 @Component({
     selector: "home",

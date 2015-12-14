@@ -1,13 +1,6 @@
-import {
-    Component,
-    Inject, Input,
-    FormBuilder,
-    Validators,
-    ControlGroup,
-    FORM_DIRECTIVES,
-    CORE_DIRECTIVES
-} from "angular2/angular2";
+import {Component, Inject} from "angular2/core";
 import {ItemsListActions} from "./items-list-actions";
+import {FormBuilder, Validators} from "angular2/common";
 
 @Component({
     selector: "add-item",
@@ -31,6 +24,6 @@ export class AddItemComponent {
     addItem($event) {
         $event.preventDefault();
 
-        this.actions.addItem(this.addItemForm.controls["name"].value);
+        this.actions.addItem(this.addItemForm.controls.name.value);
     }
 }

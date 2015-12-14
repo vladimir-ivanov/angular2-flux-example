@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, OnDestroy} from "angular2/angular2";
+import {Component, Inject, OnInit, OnDestroy} from "angular2/core";
 import {CounterActions} from "./counter-actions";
 
 import {CounterStore} from "./counter-store";

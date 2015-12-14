@@ -1,4 +1,4 @@
-import {Component, Inject, Input} from "angular2/angular2";
+import {Component, Inject, Input} from "angular2/core";
 import {ItemsListActions} from "./items-list-actions";
 
 @Component({

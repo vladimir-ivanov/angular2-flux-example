@@ -1,4 +1,4 @@
-import {EventEmitter} from "angular2/angular2";
+import {EventEmitter} from "angular2/core";
 import {Map} from "immutable";
 import {UPDATE_COUNTER, RESET_COUNTER} from "./counter-actions";
 import dispatcher from "../dispatcher";
