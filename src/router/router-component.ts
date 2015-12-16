@@ -32,7 +32,7 @@ export class RouterComponent {
 
     constructor(@Inject(Router)router:Router) {
         router.subscribe(href => {
-            let route = routes.find(r => r.path === "/" + href);
+            let route = (<any>routes).find(r => r.path === "/" + href);
 
             this.header = !!route ? route.as : "Home";
         });

@@ -1,4 +1,4 @@
-///<reference path="../typings/es6-shim.d.ts"/>
+///<reference path="../../typings/es6-shim.d.ts"/>
 import dispatcher from "../dispatcher";
 
 export const REMOVE_ITEM = "REMOVE_ITEM";

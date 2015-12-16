@@ -10,6 +10,8 @@ import {
     expect
 } from "angular2/testing";
 
+import {SpyObject} from "node_modules/angular2/src/testing/testing_internal";
+
 import {CounterStore} from "./../../src/counter/counter-store";
 import dispatcher from "./../../src/dispatcher";
 import {UPDATE_COUNTER, RESET_COUNTER} from "../../src/counter/counter-actions";
@@ -23,6 +25,9 @@ describe("CounterStore", () => {
     beforeEach(inject([CounterStore], cs => {
         store = cs;
 
+        let mySpy = new SpyObject();
+
+        mySpy.spy(store);
         spyOn(store, "emit");
     }));
 
