@@ -1,6 +1,6 @@
 <h4>Colors</h4>
 <ul>
     <li *ngFor="#color of colors" [ngStyle]="{'color': color.color}">
-        <span style="color: darkslategrey">{{color.color}}</span>
+        <span style="color: darkslategrey">{{color.color | upperCase}}</span>
     </li>
 </ul>
