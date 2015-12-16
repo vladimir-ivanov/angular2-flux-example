@@ -8,7 +8,7 @@ import {UpperCasePipe} from "./upper-case-pipe";
     selector: "home",
     providers: [HomePageActions, HomePageStore],
     directives: <any>[NgFor, NgStyle],
-    pipes: [UpperCasePipe],
+    pipes: <any>[UpperCasePipe],
     templateUrl: "./src/home/home-page.html",
     styles: [],
 })
