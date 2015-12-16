@@ -7,6 +7,7 @@ import {
     inject,
     it,
     describe,
+    expect,
     TestComponentBuilder
 } from "angular2/testing";
 import {provide} from "angular2/core";

@@ -7,6 +7,7 @@ import {
     inject,
     it,
     describe,
+    expect,
     TestComponentBuilder
 } from "angular2/testing";
 import {FormBuilder} from "angular2/common";
@@ -48,7 +49,8 @@ describe("LoginPageComponent", () => {
     describe("doLogin()", () => {
         it("should call event.preventDefault()", () => {
             let event = {
-                preventDefault: () => {}
+                preventDefault: () => {
+                }
             };
 
             spyOn(event, "preventDefault");

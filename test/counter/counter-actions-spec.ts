@@ -7,6 +7,7 @@ import {
     inject,
     it,
     describe,
+    expect
 } from "angular2/testing";
 
 import {CounterActions} from "./../../src/counter/counter-actions";

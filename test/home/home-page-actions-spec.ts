@@ -7,6 +7,7 @@ import {
     inject,
     it,
     describe,
+    expect
 } from "angular2/testing";
 
 import dispatcher from "./../../src/dispatcher";
@@ -14,7 +15,6 @@ import {HomePageActions} from "../../src/home/home-page-actions";
 import {Http, HTTP_PROVIDERS, Response, ResponseOptions} from "angular2/http";
 
 import {Observable} from "rxjs/Rx";
-
 
 let actions:HomePageActions;
 let http:Http;
