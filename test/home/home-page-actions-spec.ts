@@ -6,7 +6,6 @@ import {
     beforeEach,
     inject,
     it,
-    ddescribe,
     describe,
 } from "angular2/testing";
 
@@ -20,11 +19,12 @@ import {Observable} from "rxjs/Rx";
 let actions:HomePageActions;
 let http:Http;
 
-describe("CounterActions", () => {
+describe("HomePageActions", () => {
     beforeEachProviders(() => [Http, HTTP_PROVIDERS]);
 
-    beforeEach(inject([Http], _ => http = _));
-    beforeEach(() => {
+    beforeEach(inject([Http], _ => {
+        http = _;
+
         spyOn(dispatcher, "dispatch");
 
         spyOn(http, "get").and.returnValue(Observable.from([
@@ -32,7 +32,7 @@ describe("CounterActions", () => {
         ]));
 
         actions = new HomePageActions(http);
-    });
+    }));
 
     describe("initializeData()", () => {
         it("should call dispatcher.dispatch()", () => {

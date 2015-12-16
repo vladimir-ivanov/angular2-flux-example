@@ -17,8 +17,11 @@ let actions:CounterActions;
 describe("CounterActions", () => {
     beforeEachProviders(() => [CounterActions]);
 
-    beforeEach(inject([CounterActions], ca => actions = ca));
-    beforeEach(() => spyOn(dispatcher, "dispatch"));
+    beforeEach(inject([CounterActions], ca => {
+        spyOn(dispatcher, "dispatch");
+
+        actions = ca;
+    }));
 
     describe("increment()", () => {
         it("should call dispatcher.dispatch()", () => {

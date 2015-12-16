@@ -3,16 +3,15 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['jasmine', 'es6-shim'],
         files: [
-            'node_modules/zone.js/dist/zone-microtask.js',
-            'node_modules/zone.js/dist/long-stack-trace-zone.js',
+            'src/vendors.ts',
             'node_modules/zone.js/dist/jasmine-patch.js',
-            'node_modules/reflect-metadata/Reflect.js',
         //    { pattern: 'dom-adapter-config.js', watched: false },
             {pattern: 'test/**/*-spec.ts', watched: false}
         ],
         exclude: [],
         preprocessors: {
       //      'dom-adapter-config.js': ['webpack'],
+            'src/vendors.ts': ['webpack', 'sourcemap'],
             'test/**/*-spec.ts': ['webpack', 'sourcemap']
         },
         webpack: {
@@ -53,7 +52,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS2'],
+        browsers: ['Chrome'],
 
 
         // Continuous Integration mode
