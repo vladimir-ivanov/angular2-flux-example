@@ -1,16 +1,16 @@
-<form ng-form-model="loginForm" (submit)="doLogin($event)">
+<form [(ngFormModel)]="loginForm" (submit)="doLogin($event)">
     <fieldset>
         <legend>Enter your Details</legend>
         <div class="form-group">
-            <label *ng-if="model.email" for="exampleInputEmail1">Email address</label>
+            <label *ngIf="model.email" for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
-                   [(ng-model)]="model.email"
-                   ng-control="email">
+                   [(ngModel)]="model.email"
+                   ngControl="email">
         </div>
         <div class="form-group">
-            <label *ng-if="model.password" for="exampleInputPassword1">Password</label>
+            <label *ngIf="model.password" for="exampleInputPassword1">Password</label>
             <input type="password" ng-control="password"
-                   [(ng-model)]="model.password"
+                   [(ngModel)]="model.password"
                    class="form-control" id="exampleInputPassword1"
                    placeholder="Password">
         </div>

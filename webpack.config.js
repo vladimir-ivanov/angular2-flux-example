@@ -3,18 +3,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         app: './src/app.ts',
-        angular2: [
-            'es6-shim',
-            'zone.js',
-            'flux',
-            'immutable',
-            'reflect-metadata',
-            'angular2/core',
-            'angular2/common',
-            'angular2/router',
-            'angular2/http',
-            'angular2/platform/browser'
-        ]
+        vendors: './src/vendors.ts'
     },
     devtool: 'source-map',
     output: {
@@ -30,6 +19,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin('angular2', 'angular2.js')
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
     ]
 };

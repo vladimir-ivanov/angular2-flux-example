@@ -1,10 +1,10 @@
-<form ng-form-model="addItemForm" (submit)="addItem($event)">
+<form [(ngFormModel)]="addItemForm" (submit)="addItem($event)">
     <fieldset>
         <legend>Add Item</legend>
         <div class="form-group">
             <label for="item">Add an Item</label>
             <input type="text" class="form-control" id="item" placeholder="item name"
-                   ng-control="name">
+                   ngControl="name">
         </div>
     </fieldset>
     <button type="submit" class="btn btn-default" [disabled]="!addItemForm.valid">Add</button>
