@@ -1,5 +1,5 @@
 import {EventEmitter} from "angular2/core";
-import {List} from "immutable";
+import * as Immutable from "immutable";
 import dispatcher from "../dispatcher";
 import {FETCHED_DATA} from "./home-page-actions";
 
@@ -9,7 +9,7 @@ declare interface Payload {
 }
 
 export class HomePageStore extends EventEmitter<string> {
-    private store:any = List([]);
+    private store:any = Immutable.Map({colors: Immutable.List([])});
 
     constructor() {
         super();
@@ -19,21 +19,24 @@ export class HomePageStore extends EventEmitter<string> {
 
             switch (payload.type) {
                 case FETCHED_DATA:
-                    this.store = this.store.clear().concat(payload.data);
+                    oldStore = this.store;
+
+                    this.store = this.store.set("colors", Immutable.fromJS(payload.data));
+
                     break;
                 default:
                     break;
             }
 
-            //todo - this makes no sense - fix it :-)
-            if (!this.store.equals(oldStore)) {
+            if (!oldStore.equals(this.store)) {
+                //  debugger;
                 this.emit("changed");
             }
+
         });
     }
 
     getColors() {
-        console.log(this.store.toArray());
-        return this.store.toArray();
+        return this.store.get("colors").toJSON();
     }
 }
