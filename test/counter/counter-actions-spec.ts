@@ -1,5 +1,7 @@
-import {BrowserDomAdapter} from "angular2/src/platform/browser/browser_adapter";
-BrowserDomAdapter.makeCurrent();
+import {
+    TEST_BROWSER_PLATFORM_PROVIDERS,
+    TEST_BROWSER_APPLICATION_PROVIDERS
+} from 'angular2/platform/testing/browser';
 
 import {
     beforeEachProviders,
@@ -7,11 +9,14 @@ import {
     inject,
     it,
     describe,
-    expect
+    expect,
+    setBaseTestProviders
 } from "angular2/testing";
 
 import {CounterActions} from "./../../src/counter/counter-actions";
 import dispatcher from "./../../src/dispatcher";
+
+setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
 let actions:CounterActions;
 

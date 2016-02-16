@@ -1,5 +1,7 @@
-import {BrowserDomAdapter} from "angular2/src/platform/browser/browser_adapter";
-BrowserDomAdapter.makeCurrent();
+import {
+    TEST_BROWSER_PLATFORM_PROVIDERS,
+    TEST_BROWSER_APPLICATION_PROVIDERS
+} from 'angular2/platform/testing/browser';
 
 import {
     beforeEachProviders,
@@ -8,11 +10,13 @@ import {
     it,
     describe,
     expect,
-    TestComponentBuilder
+    TestComponentBuilder, setBaseTestProviders, injectAsync
 } from "angular2/testing";
 import {FormBuilder} from "angular2/common";
 
 import {LoginPage} from "./../../src/login/login-page.ts";
+
+setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
 let component:LoginPage;
 let formBuilder:FormBuilder;
@@ -26,8 +30,8 @@ describe("LoginPageComponent", () => {
         spyOn(formBuilder, "group").and.returnValue("form builder value");
     }));
 
-    beforeEach(inject([TestComponentBuilder], tcb => {
-        tcb.overrideTemplate(LoginPage, "<div></div>").createAsync(LoginPage).then(f => {
+    beforeEach(injectAsync([TestComponentBuilder], tcb => {
+        return tcb.overrideTemplate(LoginPage, "<div></div>").createAsync(LoginPage).then(f => {
             component = f.componentInstance;
         });
     }));

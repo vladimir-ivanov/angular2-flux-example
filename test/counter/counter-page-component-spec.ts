@@ -1,5 +1,7 @@
-import {BrowserDomAdapter} from "angular2/src/platform/browser/browser_adapter";
-BrowserDomAdapter.makeCurrent();
+import {
+    TEST_BROWSER_PLATFORM_PROVIDERS,
+    TEST_BROWSER_APPLICATION_PROVIDERS
+} from 'angular2/platform/testing/browser';
 
 import {
     beforeEachProviders,
@@ -7,12 +9,14 @@ import {
     inject,
     it,
     describe,
-    TestComponentBuilder
+    TestComponentBuilder, setBaseTestProviders, injectAsync
 } from "angular2/testing";
 import {CounterPageComponent} from "../../src/counter/counter-page-component";
 import {CounterStore} from "../../src/counter/counter-store";
 import {CounterActions} from "../../src/counter/counter-actions";
 import {provide} from "angular2/core";
+
+setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
 describe("CounterPageComponent", () => {
     let component:any;
@@ -21,7 +25,7 @@ describe("CounterPageComponent", () => {
 
     beforeEachProviders(() => [CounterActions, CounterStore]);
 
-    beforeEach(inject([TestComponentBuilder], tcb => {
+    beforeEach(injectAsync([TestComponentBuilder], tcb => {
         store = new CounterStore();
         actions = new CounterActions();
 
@@ -31,7 +35,7 @@ describe("CounterPageComponent", () => {
         spyOn(actions, "decrement");
         spyOn(actions, "reset");
 
-        tcb.overrideTemplate(CounterPageComponent, "<sec></sec>")
+        return tcb.overrideTemplate(CounterPageComponent, "<sec></sec>")
             .overrideProviders(CounterPageComponent, [
                 provide(CounterActions, {useValue: actions}),
                 provide(CounterStore, {useValue: store}) // or useFactory: () => {let counterStore = new CounterStore() //spy and return counterStore}
@@ -41,9 +45,7 @@ describe("CounterPageComponent", () => {
     }));
 
     describe("ngOnInit()", () => {
-        beforeEach(() => {
-            component.ngOnInit();
-        });
+        beforeEach(() => component.ngOnInit());
 
         it("should call getCounter() to get initial value", ()  => {
             expect(store.getCounter.calls.count()).toEqual(1);
