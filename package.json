@@ -1,6 +1,6 @@
 {
   "name": "angular2-flux-karma",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "main": "src/app.ts",
   "scripts": {

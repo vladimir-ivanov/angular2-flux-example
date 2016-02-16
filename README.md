@@ -41,6 +41,4 @@ or use a server of your choice and open index.html in any browser
 ## Typescript tslint options
 
 ## Todo
-* Protractor?
-* Figure out clear strategy about css structuring
-* find a way to put templates in templateCache (or equivalent in ng2 when packaging for distribution)
+Consider using web api utils to abstract away http calls from the actions (which should be responsible for caching too)
