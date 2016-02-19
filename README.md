@@ -45,10 +45,11 @@ Consider using web api utils to abstract away http calls from the actions (which
 
 Templates resolution:
 * use template property (of @Component) with inline templates (not ideal)
-* * use template property with webpack https://www.npmjs.com/package/html-loader e.g. 
-* ```
-* let templateContent = require("html!./myTemplateHere.html");
-* ...
-* template: templateContent
-* ```
+*  use template property with webpack https://www.npmjs.com/package/html-loader e.g. 
+```
+let templateContent = require("html!./myTemplateHere.html");
+...
+template: templateContent
+```
+but it opens other problems - code won't work in system.js, internal resouces - e.g. image tags inside the template [myTemplateHere.html] need to be resolved too etc.
 
