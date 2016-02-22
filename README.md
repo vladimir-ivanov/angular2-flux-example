@@ -45,4 +45,4 @@ Consider using web api utils to abstract away http calls from the actions (which
 
 ## Example of how to do templateUrl caching for production can be found here:
 
-https://github.com/vladimir-ivanov/angular2-template-caching
+[angular2-template-caching](https://github.com/vladimir-ivanov/angular2-template-caching)
