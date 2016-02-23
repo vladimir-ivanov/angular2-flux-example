@@ -24,46 +24,46 @@ describe("CounterActions", () => {
     beforeEachProviders(() => [CounterActions]);
 
     beforeEach(inject([CounterActions], ca => {
-        spyOn(dispatcher, "dispatch");
+        spyOn(dispatcher, "emit");
 
         actions = ca;
     }));
 
     describe("increment()", () => {
-        it("should call dispatcher.dispatch()", () => {
+        it("should call dispatcher.emit()", () => {
             actions.increment();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(0)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
+            expect((<any>dispatcher.emit).calls.argsFor(0)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
 
             actions.increment();
             actions.increment();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(2)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
+            expect((<any>dispatcher.emit).calls.argsFor(2)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
         });
     });
 
     describe("decrement()", () => {
-        it("should call dispatcher.dispatch()", () => {
+        it("should call dispatcher.emit()", () => {
             actions.increment();
             actions.increment();
             actions.increment();
             actions.decrement();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(3)).toEqual([Object({type: "UPDATE_COUNTER", data: -1})]);
+            expect((<any>dispatcher.emit).calls.argsFor(3)).toEqual([Object({type: "UPDATE_COUNTER", data: -1})]);
 
             actions.decrement();
-            expect((<any>dispatcher.dispatch).calls.argsFor(4)).toEqual([Object({type: "UPDATE_COUNTER", data: -1})]);
+            expect((<any>dispatcher.emit).calls.argsFor(4)).toEqual([Object({type: "UPDATE_COUNTER", data: -1})]);
         });
     });
 
     describe("reset()", () => {
-        it("should call dispatcher.dispatch()", () => {
+        it("should call dispatcher.emit()", () => {
             actions.increment();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(0)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
+            expect((<any>dispatcher.emit).calls.argsFor(0)).toEqual([Object({type: "UPDATE_COUNTER", data: 1})]);
 
             actions.reset();
-            expect((<any>dispatcher.dispatch).calls.argsFor(1)).toEqual([Object({type: "RESET_COUNTER", data: null})]);
+            expect((<any>dispatcher.emit).calls.argsFor(1)).toEqual([Object({type: "RESET_COUNTER", data: null})]);
         });
     });
 });

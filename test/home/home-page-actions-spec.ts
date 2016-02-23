@@ -29,7 +29,7 @@ describe("HomePageActions", () => {
     beforeEach(inject([Http], _ => {
         http = _;
 
-        spyOn(dispatcher, "dispatch");
+        spyOn(dispatcher, "emit");
 
         spyOn(http, "get").and.returnValue(Observable.from([
             new Response(new ResponseOptions({body: {colors: "red"}}))
@@ -39,10 +39,10 @@ describe("HomePageActions", () => {
     }));
 
     describe("initializeData()", () => {
-        it("should call dispatcher.dispatch()", () => {
+        it("should call dispatcher.emit()", () => {
             actions.initializeData();
 
-            expect((<any>dispatcher.dispatch).calls.argsFor(0)).toEqual([
+            expect((<any>dispatcher.emit).calls.argsFor(0)).toEqual([
                 Object({
                     type: "FETCHED_DATA",
                     data: Object({colors: "red"})

@@ -13,14 +13,14 @@ export class HomePageActions {
 
     initializeData() {
         this.http.get("api-mock/colors.json").subscribe(data => {
-            dispatcher.dispatch({
+            dispatcher.emit({
                 type: FETCHED_DATA,
                 data: data.json()
             });
 
             setTimeout(
                 () => {
-                    dispatcher.dispatch({
+                    dispatcher.emit({
                         type: FETCHED_DATA,
                         data: data.json()
                     });

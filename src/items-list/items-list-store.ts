@@ -23,7 +23,7 @@ export class ItemsListStore extends EventEmitter<string> {
     constructor() {
         super();
 
-        dispatcher.register((payload:Payload) => {
+        dispatcher.subscribe((payload:Payload) => {
             let oldItemsStore = this.itemsStore;
 
             switch (payload.type) {

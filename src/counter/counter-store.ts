@@ -16,7 +16,7 @@ export class CounterStore extends EventEmitter<string> {
     constructor() {
         super();
 
-        dispatcher.register((payload:Payload) => {
+        dispatcher.subscribe((payload:Payload) => {
             let oldStore = this.store;
 
             switch (payload.type) {

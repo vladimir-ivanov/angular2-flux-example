@@ -1,5 +1,4 @@
-/// <reference path="../typings/flux/flux.d.ts" />
-import {Dispatcher} from "flux";
+import {EventEmitter} from "angular2/core";
 
-const dispatcher = new Dispatcher();
+const dispatcher = new EventEmitter();
 export default dispatcher;

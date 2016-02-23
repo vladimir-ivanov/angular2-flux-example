@@ -26,7 +26,6 @@ export class CounterPageComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-    //    this.counterStore.unsubscribe();
     }
 
     increment() {

@@ -13,14 +13,14 @@ export class CounterActions {
     }
 
     reset() {
-        dispatcher.dispatch({
+        dispatcher.emit({
             type: RESET_COUNTER,
             data: null
         });
     }
 
     private updateOffsetDispatch(offset:number) {
-        dispatcher.dispatch({
+        dispatcher.emit({
             type: UPDATE_COUNTER,
             data: offset
         });

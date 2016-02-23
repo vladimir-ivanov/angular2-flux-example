@@ -23,7 +23,7 @@ let store:any;
 describe("CounterStore", () => {
     beforeEachProviders(() => [CounterStore]);
 
-    beforeEach(() => spyOn(dispatcher, "register"));
+    beforeEach(() => spyOn(dispatcher, "subscribe"));
     beforeEach(inject([CounterStore], cs => {
         store = cs;
 
@@ -31,10 +31,10 @@ describe("CounterStore", () => {
     }));
 
     describe("constructor()", () => {
-        it("should register a callback on the dispatcher.register", () => {
-            let registerCallback:Function = (<any>dispatcher.register).calls.argsFor(0)[0];
+        it("should subscribe a callback on the dispatcher.subscribe", () => {
+            let subscribeCallback:Function = (<any>dispatcher.subscribe).calls.argsFor(0)[0];
 
-            registerCallback({type: UPDATE_COUNTER, data: 4});
+            subscribeCallback({type: UPDATE_COUNTER, data: 4});
             expect((<any>store.emit).calls.argsFor(0)).toEqual(["changed"]);
         });
     });
@@ -42,16 +42,16 @@ describe("CounterStore", () => {
     describe("getCounter()", () => {
         it("should return the current value of the counter", () => {
             //grab the callback body
-            let registerCallback:Function = (<any>dispatcher.register).calls.argsFor(0)[0];
+            let subscribeCallback:Function = (<any>dispatcher.subscribe).calls.argsFor(0)[0];
             //pre condition
             expect(store.getCounter()).toEqual(20);
             //action
-            registerCallback({type: UPDATE_COUNTER, data: 5});
+            subscribeCallback({type: UPDATE_COUNTER, data: 5});
             //post condition
             expect(store.getCounter()).toEqual(25);
 
 //and reset
-            registerCallback({type: RESET_COUNTER, data: null});
+            subscribeCallback({type: RESET_COUNTER, data: null});
             //post condition
             expect(store.getCounter()).toEqual(20);
         });
