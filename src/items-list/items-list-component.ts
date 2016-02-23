@@ -31,6 +31,6 @@ export class ItemsListComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.store.unsubscribe();
+      //  this.store.unsubscribe();
     }
 }
