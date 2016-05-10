@@ -1,24 +1,9 @@
-import {
-    TEST_BROWSER_PLATFORM_PROVIDERS,
-    TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
-
-import {
-    beforeEachProviders,
-    beforeEach,
-    inject,
-    it,
-    describe,
-    expect, setBaseTestProviders
-} from "angular2/testing";
-
+/// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
+import {beforeEachProviders, beforeEach, inject, it, describe, expect} from "@angular/core/testing";
 import dispatcher from "./../../src/dispatcher";
 import {HomePageActions} from "../../src/home/home-page-actions";
-import {Http, HTTP_PROVIDERS, Response, ResponseOptions} from "angular2/http";
-
+import {Http, HTTP_PROVIDERS, Response, ResponseOptions} from "@angular/http";
 import {Observable} from "rxjs/Rx";
-
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
 let actions:HomePageActions;
 let http:Http;

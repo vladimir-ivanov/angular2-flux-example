@@ -1,8 +1,7 @@
 <h4>My Items</h4>
 
 <ul>
-    <item *ngFor="#item of items" [details]="item"></item>
+    <item *ngFor="let item of items" [details]="item"></item>
 </ul>
-
 
 <add-item></add-item>

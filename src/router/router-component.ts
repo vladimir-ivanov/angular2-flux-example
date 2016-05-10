@@ -1,17 +1,15 @@
-import {Component, Inject} from "angular2/core";
-import {NgFor} from "angular2/common";
-import {RouteConfig,  ROUTER_DIRECTIVES, Router} from "angular2/router";
+import {Component, Inject} from "@angular/core";
+import {NgFor} from "@angular/common";
+import {RouteConfig, ROUTER_DIRECTIVES, Router, RouterLink, RouterOutlet} from "@angular/router-deprecated";
 import {LoginPage} from "../login/login-page";
 import {CounterPageComponent} from "../counter/counter-page-component";
 import {ItemsListComponent} from "../items-list/items-list-component";
 import {HomePageComponent} from "../home/home-page-component";
-import {RouterLink} from "angular2/src/router/router_link";
-import {RouterOutlet} from "angular2/src/router/router_outlet";
 
 declare type Routes = Array<{
-    path: string;
-    component: any,
-    as: string;
+    path:string;
+    component:any,
+    as:string;
 }>;
 
 const routes:Routes = [

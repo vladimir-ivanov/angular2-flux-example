@@ -1,8 +1,8 @@
+/// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
 import {
-    TEST_BROWSER_PLATFORM_PROVIDERS,
-    TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
-
+    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+} from "@angular/platform-browser-dynamic/testing";
 import {
     beforeEachProviders,
     beforeEach,
@@ -10,16 +10,18 @@ import {
     it,
     describe,
     expect,
-    TestComponentBuilder, setBaseTestProviders, injectAsync
-} from "angular2/testing";
-import {FormBuilder} from "angular2/common";
-
+    setBaseTestProviders,
+    inject,
+    async
+} from "@angular/core/testing";
+import {TestComponentBuilder} from "@angular/compiler/testing";
+import {FormBuilder} from "@angular/common";
 import {LoginPage} from "./../../src/login/login-page.ts";
-
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
 let component:LoginPage;
 let formBuilder:FormBuilder;
+
+setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 describe("LoginPageComponent", () => {
     beforeEachProviders(() => [FormBuilder]);
@@ -30,11 +32,11 @@ describe("LoginPageComponent", () => {
         spyOn(formBuilder, "group").and.returnValue("form builder value");
     }));
 
-    beforeEach(injectAsync([TestComponentBuilder], tcb => {
+    beforeEach(async(inject([TestComponentBuilder], tcb => {
         return tcb.overrideTemplate(LoginPage, "<div></div>").createAsync(LoginPage).then(f => {
             component = f.componentInstance;
         });
-    }));
+    })));
 
     it("should initialize correctly its properties", () => {
         expect(component.model).toEqual({email: "x@yahoo.com", password: ""});

@@ -1,20 +1,14 @@
 import {
-    TEST_BROWSER_PLATFORM_PROVIDERS,
-    TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
-
-import {Component} from "angular2/core";
-
-import {
-    it,
-    injectAsync,
-    describe,
-    expect,
-    TestComponentBuilder, setBaseTestProviders
-} from "angular2/testing";
+    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+} from "@angular/platform-browser-dynamic/testing";
+import {Component} from "@angular/core";
+import {it, inject, async, describe, expect, setBaseTestProviders} from "@angular/core/testing";
+import {TestComponentBuilder} from "@angular/compiler/testing";
 import {UpperCasePipe} from "../../src/home/upper-case-pipe";
 
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
+setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+
 
 @Component({
     selector: "home",
@@ -26,12 +20,12 @@ class TestComponent {
 }
 
 describe("UpperCasePipe - test the injector selector", () => {
-    it("should wrap content", injectAsync([TestComponentBuilder], (tcb) => {
+    it("should wrap content", async(inject([TestComponentBuilder], (tcb) => {
         return tcb.createAsync(TestComponent).then((fixture) => {
             fixture.detectChanges();
             let compiled = fixture.debugElement.nativeElement;
 
             expect(compiled.innerText).toContain("HELLO");
         });
-    }));
+    })));
 });

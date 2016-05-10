@@ -1,9 +1,9 @@
-import {Component, Inject, OnInit, OnDestroy} from "angular2/core";
+import {Component, Inject, OnInit, OnDestroy} from "@angular/core";
 import {ItemsListActions} from "./items-list-actions";
 import {ItemsListStore} from "./items-list-store";
 import {Item} from "./item-component";
 import {AddItemComponent} from "./add-item-component";
-import {CORE_DIRECTIVES, COMMON_DIRECTIVES} from "angular2/common";
+import {CORE_DIRECTIVES, COMMON_DIRECTIVES} from "@angular/common";
 
 @Component({
     selector: "items-list",

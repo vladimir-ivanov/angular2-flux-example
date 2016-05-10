@@ -1,7 +1,7 @@
-import {Component, Inject, OnInit} from "angular2/core";
+import {Component, Inject, OnInit} from "@angular/core";
 import {HomePageActions} from "./home-page-actions";
 import {HomePageStore} from "./home-page-store";
-import {NgFor, NgStyle} from "angular2/common";
+import {NgFor, NgStyle} from "@angular/common";
 import {UpperCasePipe} from "./upper-case-pipe";
 
 @Component({

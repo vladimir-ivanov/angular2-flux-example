@@ -1,17 +1,18 @@
-import "es6-promise";
-import "es6-shim";
-import "reflect-metadata";
-import "zone.js/dist/zone-microtask";
+import 'core-js/es6';
+import 'core-js/es7/reflect';
+import "zone.js/dist/zone";
+//for test environments
 import "zone.js/dist/long-stack-trace-zone";
 
+import '@angular/platform-browser';
+import '@angular/platform-browser-dynamic';
+import '@angular/core';
+import '@angular/common';
+import '@angular/http';
+import '@angular/router-deprecated';
 
-import "angular2/platform/browser";
-import "angular2/platform/common_dom";
-import "angular2/core";
-import "angular2/router";
-import "angular2/http";
-
-import "rxjs";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 import "flux";
 import "immutable";

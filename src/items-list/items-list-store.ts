@@ -1,4 +1,4 @@
-import {EventEmitter} from "angular2/core";
+import {EventEmitter} from "@angular/core";
 import {List} from "immutable";
 import dispatcher from "../dispatcher";
 import {ADD_ITEM, REMOVE_ITEM} from "./items-list-actions";

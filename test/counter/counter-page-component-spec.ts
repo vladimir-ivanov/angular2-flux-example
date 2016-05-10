@@ -1,22 +1,24 @@
+/// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
 import {
-    TEST_BROWSER_PLATFORM_PROVIDERS,
-    TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
-
+    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+} from "@angular/platform-browser-dynamic/testing";
 import {
     beforeEachProviders,
     beforeEach,
-    inject,
     it,
     describe,
-    TestComponentBuilder, setBaseTestProviders, injectAsync
-} from "angular2/testing";
+    inject,
+    async,
+    setBaseTestProviders
+} from "@angular/core/testing";
+import {TestComponentBuilder} from "@angular/compiler/testing";
 import {CounterPageComponent} from "../../src/counter/counter-page-component";
 import {CounterStore} from "../../src/counter/counter-store";
 import {CounterActions} from "../../src/counter/counter-actions";
-import {provide} from "angular2/core";
+import {provide} from "@angular/core";
 
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
+setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 describe("CounterPageComponent", () => {
     let component:any;
@@ -25,7 +27,7 @@ describe("CounterPageComponent", () => {
 
     beforeEachProviders(() => [CounterActions, CounterStore]);
 
-    beforeEach(injectAsync([TestComponentBuilder], tcb => {
+    beforeEach(async(inject([TestComponentBuilder], tcb => {
         store = new CounterStore();
         actions = new CounterActions();
 
@@ -42,16 +44,16 @@ describe("CounterPageComponent", () => {
             ])
             .createAsync(CounterPageComponent)
             .then(f => component = f.componentInstance);
-    }));
+    })));
 
     describe("ngOnInit()", () => {
         beforeEach(() => component.ngOnInit());
 
-        it("should call getCounter() to get initial value", ()  => {
+        it("should call getCounter() to get initial value", () => {
             expect(store.getCounter.calls.count()).toEqual(1);
         });
 
-        it("should subscribe to the counterStore", ()  => {
+        it("should subscribe to the counterStore", () => {
             let subscribeCallback = store.subscribe.calls.argsFor(0)[0];
             subscribeCallback();
 

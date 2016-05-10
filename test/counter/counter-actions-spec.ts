@@ -1,22 +1,7 @@
-import {
-    TEST_BROWSER_PLATFORM_PROVIDERS,
-    TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
-
-import {
-    beforeEachProviders,
-    beforeEach,
-    inject,
-    it,
-    describe,
-    expect,
-    setBaseTestProviders
-} from "angular2/testing";
-
+/// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
+import {beforeEachProviders, beforeEach, inject, it, describe, expect} from "@angular/core/testing";
 import {CounterActions} from "./../../src/counter/counter-actions";
 import dispatcher from "./../../src/dispatcher";
-
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
 
 let actions:CounterActions;
 

@@ -5,6 +5,8 @@ module.exports = function (config) {
         files: [
             'src/vendors.ts',
             'node_modules/zone.js/dist/jasmine-patch.js',
+            'node_modules/zone.js/dist/async-test.js',
+            'node_modules/zone.js/dist/fake-async-test.js',
         //    { pattern: 'dom-adapter-config.js', watched: false },
             {pattern: 'test/**/*-spec.ts', watched: false}
         ],

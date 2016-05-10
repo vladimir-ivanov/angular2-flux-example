@@ -1,23 +1,17 @@
-import {
-    TEST_BROWSER_PLATFORM_PROVIDERS,
-    TEST_BROWSER_APPLICATION_PROVIDERS
-} from 'angular2/platform/testing/browser';
+/// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
 
 import {
-    beforeEachProviders,
-    beforeEach,
-    inject,
-    it,
-    describe,
-    expect,
-    TestComponentBuilder, setBaseTestProviders, injectAsync
-} from "angular2/testing";
-import {provide} from "angular2/core";
+    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+} from "@angular/platform-browser-dynamic/testing";
+import {beforeEachProviders, beforeEach, it, describe, expect, inject, async, setBaseTestProviders} from "@angular/core/testing";
+import {TestComponentBuilder} from "@angular/compiler/testing";
+import {provide} from "@angular/core";
 import {CounterPageComponent} from "../../src/counter/counter-page-component";
 import {CounterStore} from "../../src/counter/counter-store";
 import {CounterActions} from "../../src/counter/counter-actions";
 
-setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
+setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 describe("HomePageComponent", () => {
     let component:any;
@@ -26,7 +20,7 @@ describe("HomePageComponent", () => {
 
     beforeEachProviders(() => [CounterActions, CounterStore]);
 
-    beforeEach(injectAsync([TestComponentBuilder], tcb => {
+    beforeEach(async(inject([TestComponentBuilder], tcb => {
         store = new CounterStore();
         actions = new CounterActions();
 
@@ -43,7 +37,7 @@ describe("HomePageComponent", () => {
             ])
             .createAsync(CounterPageComponent)
             .then(f => component = f.componentInstance);
-    }));
+    })));
 
     beforeEach(() => {
         component.ngOnInit();
