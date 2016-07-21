@@ -9,7 +9,7 @@ import '@angular/platform-browser-dynamic';
 import '@angular/core';
 import '@angular/common';
 import '@angular/http';
-import '@angular/router-deprecated';
+import '@angular/router';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';

@@ -9,7 +9,6 @@ import {UpperCasePipe} from "../../src/home/upper-case-pipe";
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
-
 @Component({
     selector: "home",
     pipes: <any>[UpperCasePipe],
