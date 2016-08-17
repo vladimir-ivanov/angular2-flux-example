@@ -16,7 +16,7 @@ import {
 } from "@angular/core/testing";
 import {TestComponentBuilder} from "@angular/compiler/testing";
 import {FormBuilder} from "@angular/common";
-import {LoginPage} from "./../../src/login/login-page.ts";
+import {LoginPage} from "../../src/login/login-page-component.ts";
 
 let component:LoginPage;
 let formBuilder:FormBuilder;

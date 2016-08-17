@@ -1,4 +1,4 @@
-import dispatcher from "../dispatcher";
+import dispatcher from "../dispatcher.ts";
 
 export const UPDATE_COUNTER = "UPDATE_COUNTER";
 export const RESET_COUNTER = "RESET_COUNTER";

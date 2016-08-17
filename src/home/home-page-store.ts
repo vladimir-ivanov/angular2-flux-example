@@ -1,7 +1,7 @@
 import {EventEmitter} from "@angular/core";
 import * as Immutable from "immutable";
-import dispatcher from "../dispatcher";
-import {FETCHED_DATA} from "./home-page-actions";
+import dispatcher from "../dispatcher.ts";
+import {FETCHED_DATA} from "./home-page-actions.ts";
 
 declare interface Payload {
     type: string;

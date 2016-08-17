@@ -1,11 +1,11 @@
-<form [(ngFormModel)]="addItemForm" (submit)="addItem($event)">
+<form #addItemForm="ngForm"  *ngIf="active"  (ngSubmit)="onSubmit($event)">
     <fieldset>
         <legend>Add Item</legend>
         <div class="form-group">
             <label for="item">Add an Item</label>
             <input type="text" class="form-control" id="item" placeholder="item name"
-                   ngControl="name">
+                   name="item" required [(ngModel)]="item">
         </div>
     </fieldset>
-    <button type="submit" class="btn btn-default" [disabled]="!addItemForm.valid">Add</button>
+    <button type="submit" class="btn btn-default" [disabled]="!addItemForm.form.valid">Add</button>
 </form>

@@ -1,7 +1,7 @@
 import {EventEmitter} from "@angular/core";
 import {Map} from "immutable";
-import {UPDATE_COUNTER, RESET_COUNTER} from "./counter-actions";
-import dispatcher from "../dispatcher";
+import {UPDATE_COUNTER, RESET_COUNTER} from "./counter-actions.ts";
+import dispatcher from "../dispatcher.ts";
 
 declare interface Payload {
     type: string;

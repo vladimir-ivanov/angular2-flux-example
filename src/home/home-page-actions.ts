@@ -1,4 +1,4 @@
-import dispatcher from "../dispatcher";
+import dispatcher from "../dispatcher.ts";
 import {Http} from "@angular/http";
 import {Inject} from "@angular/core";
 

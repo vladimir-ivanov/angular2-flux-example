@@ -1,5 +1,4 @@
-/// <reference path="../../typings/symbol.d.ts" />
-import dispatcher from "../dispatcher";
+import dispatcher from "../dispatcher.ts";
 
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const ADD_ITEM = "ADD_ITEM";
@@ -10,7 +9,7 @@ export class ItemsListActions {
             type: ADD_ITEM,
             data: {
                 name: name,
-                id: new Symbol()
+                id: new Date()
             }
         });
     }

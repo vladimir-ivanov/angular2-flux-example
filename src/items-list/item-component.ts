@@ -1,5 +1,5 @@
 import {Component, Inject, Input} from "@angular/core";
-import {ItemsListActions} from "./items-list-actions";
+import {ItemsListActions} from "./items-list-actions.ts";
 
 @Component({
     selector: "item",
@@ -7,13 +7,9 @@ import {ItemsListActions} from "./items-list-actions";
     templateUrl: "./src/items-list/item.html"
 })
 export class Item {
-    actions: ItemsListActions;
+    @Input("details") details;
 
-    @Input("details")
-    details;
-
-    constructor(@Inject(ItemsListActions) actions) {
-        this.actions = actions;
+    constructor(@Inject(ItemsListActions) private actions) {
     }
 
     removeItem(item) {

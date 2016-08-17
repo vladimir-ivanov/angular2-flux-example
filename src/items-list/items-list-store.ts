@@ -1,7 +1,7 @@
 import {EventEmitter} from "@angular/core";
 import {List} from "immutable";
-import dispatcher from "../dispatcher";
-import {ADD_ITEM, REMOVE_ITEM} from "./items-list-actions";
+import dispatcher from "../dispatcher.ts";
+import {ADD_ITEM, REMOVE_ITEM} from "./items-list-actions.ts";
 
 declare interface Payload {
     type: string;

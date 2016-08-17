@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from "@angular/core";
-import {HomePageActions} from "./home-page-actions";
-import {HomePageStore} from "./home-page-store";
+import {HomePageActions} from "./home-page-actions.ts";
+import {HomePageStore} from "./home-page-store.ts";
 import {NgFor, NgStyle} from "@angular/common";
-import {UpperCasePipe} from "./upper-case-pipe";
+import {UpperCasePipe} from "./upper-case-pipe.ts";
 
 @Component({
     selector: "home",
@@ -12,16 +12,13 @@ import {UpperCasePipe} from "./upper-case-pipe";
     templateUrl: "./src/home/home-page.html",
     styles: [],
 })
-
 export class HomePageComponent implements OnInit {
-    store;
     colors;
 
-    constructor(@Inject(HomePageActions)actions, @Inject(HomePageStore)store) {
-        this.store = store;
+    constructor(@Inject(HomePageActions) private actions, @Inject(HomePageStore) private store) {
         actions.initializeData();
     }
-
+    
     ngOnInit() {
         this.store.subscribe(() => this.colors = this.store.getColors());
     }

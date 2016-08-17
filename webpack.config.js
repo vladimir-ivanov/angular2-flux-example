@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './src/app.ts',
+        app: './src/main.ts',
         vendors: './src/vendors.ts'
     },
     devtool: 'source-map',

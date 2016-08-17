@@ -1,21 +1,32 @@
-<form [(ngFormModel)]="loginForm" (submit)="doLogin($event)">
+<form  *ngIf="active" (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <fieldset>
         <legend>Enter your Details</legend>
         <div class="form-group">
             <label *ngIf="model.email" for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
                    [(ngModel)]="model.email"
-                   ngControl="email">
+                   required
+                   name="email"
+                   #email="ngModel">
+            <div [hidden]="email.valid || email.pristine"
+                 class="alert alert-danger">
+                Email is required
+            </div>
         </div>
         <div class="form-group">
             <label *ngIf="model.password" for="exampleInputPassword1">Password</label>
             <input type="password" ng-control="password"
                    [(ngModel)]="model.password"
                    class="form-control" id="exampleInputPassword1"
-                   placeholder="Password">
+                   placeholder="Password"
+                   name="password"
+                   #password="ngModel">
+            <div [hidden]="password.valid || password.pristine"
+                 class="alert alert-danger">
+                Password is required
+            </div>
         </div>
 
     </fieldset>
-    {{model|json}}
-    <button type="submit" class="btn btn-default" [disabled]="!loginForm.valid">Submit</button>
+    <button type="submit" class="btn btn-default" [disabled]="!loginForm.form.valid">Submit</button>
 </form>
