@@ -10,7 +10,7 @@ TestBed.initTestEnvironment(
     platformBrowserDynamicTesting()
 );
 
-fdescribe("LoginPageComponent", () => {
+describe("LoginPageComponent", () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [LoginPageComponent]

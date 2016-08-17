@@ -1,15 +1,26 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
+import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
 import {inject} from "@angular/core/testing";
-import dispatcher from "./../../src/dispatcher";
-import {HomePageActions} from "../../src/home/home-page-actions";
-import {Http, HTTP_PROVIDERS, Response, ResponseOptions} from "@angular/http";
+import {TestBed} from "@angular/core/testing/test_bed";
+import dispatcher from "./../../src/dispatcher.ts";
+import {HomePageActions} from "../../src/home/home-page-actions.ts";
+import {Http, Response, ResponseOptions, HttpModule} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 
 let actions:HomePageActions;
 let http:Http;
 
+TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+);
+
 describe("HomePageActions", () => {
-    beforeEachProviders(() => [Http, HTTP_PROVIDERS]);
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [HttpModule]
+        });
+    });
 
     beforeEach(inject([Http], _ => {
         http = _;

@@ -1,30 +1,23 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-import {
-    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
-} from "@angular/platform-browser-dynamic/testing";
-import {
-    beforeEachProviders,
-    inject,
-    async,
-    setBaseTestProviders
-} from "@angular/core/testing";
-import {TestComponentBuilder} from "@angular/compiler/testing";
+import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
+import {TestBed} from "@angular/core/testing/test_bed";
 import {CounterPageComponent} from "../../src/counter/counter-page-component";
 import {CounterStore} from "../../src/counter/counter-store";
 import {CounterActions} from "../../src/counter/counter-actions";
 import {provide} from "@angular/core";
 
-setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+);
 
 describe("CounterPageComponent", () => {
     let component:any;
     let actions:any;
     let store:any;
 
-    beforeEachProviders(() => [CounterActions, CounterStore]);
 
-    beforeEach(async(inject([TestComponentBuilder], tcb => {
+    beforeEach(() => {
         store = new CounterStore();
         actions = new CounterActions();
 
@@ -34,27 +27,40 @@ describe("CounterPageComponent", () => {
         spyOn(actions, "decrement");
         spyOn(actions, "reset");
 
-        return tcb.overrideTemplate(CounterPageComponent, "<sec></sec>")
-            .overrideProviders(CounterPageComponent, [
+        TestBed.configureTestingModule({
+            providers: [
                 provide(CounterActions, {useValue: actions}),
-                provide(CounterStore, {useValue: store}) // or useFactory: () => {let counterStore = new CounterStore() //spy and return counterStore}
-            ])
-            .createAsync(CounterPageComponent)
-            .then(f => component = f.componentInstance);
-    })));
+                provide(CounterStore, {useValue: store})
+            ],
+            declarations: [CounterPageComponent]
+        });
+
+        TestBed.overrideComponent(CounterPageComponent, {
+            set: {
+                template: `<div>Overridden template here</div>`
+            }
+        });
+    });
+
+    beforeEach(() => {
+        let fixture = TestBed.createComponent(CounterPageComponent);
+        fixture.detectChanges();
+
+        component = fixture.componentInstance;
+    });
 
     describe("ngOnInit()", () => {
         beforeEach(() => component.ngOnInit());
 
         it("should call getCounter() to get initial value", () => {
-            expect(store.getCounter.calls.count()).toEqual(1);
+            expect(store.getCounter.calls.count()).toEqual(2);
         });
 
         it("should subscribe to the counterStore", () => {
             let subscribeCallback = store.subscribe.calls.argsFor(0)[0];
             subscribeCallback();
 
-            expect(store.getCounter.calls.count()).toEqual(2);
+            expect(store.getCounter.calls.count()).toEqual(3);
             expect(component.counter).toEqual(33);
         });
     });

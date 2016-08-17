@@ -1,12 +1,23 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-import {beforeEachProviders, inject} from "@angular/core/testing";
-import {CounterActions} from "./../../src/counter/counter-actions";
-import dispatcher from "./../../src/dispatcher";
+import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
+import {inject} from "@angular/core/testing";
+import {TestBed} from "@angular/core/testing/test_bed";
+import {CounterActions} from "./../../src/counter/counter-actions.ts";
+import dispatcher from "./../../src/dispatcher.ts";
 
 let actions:CounterActions;
 
+TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+);
+
 describe("CounterActions", () => {
-    beforeEachProviders(() => [CounterActions]);
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            providers: [CounterActions]
+        });
+    });
 
     beforeEach(inject([CounterActions], ca => {
         spyOn(dispatcher, "emit");

@@ -1,13 +1,13 @@
-import {
-    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
-} from "@angular/platform-browser-dynamic/testing";
+/// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
+import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
 import {Component} from "@angular/core";
-import {inject, async, setBaseTestProviders} from "@angular/core/testing";
-import {TestComponentBuilder} from "@angular/compiler/testing";
+import {TestBed} from "@angular/core/testing/test_bed";
 import {UpperCasePipe} from "../../src/home/upper-case-pipe";
 
-setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+);
 
 @Component({
     selector: "home",
@@ -19,12 +19,16 @@ class TestComponent {
 }
 
 describe("UpperCasePipe - test the injector selector", () => {
-    it("should wrap content", async(inject([TestComponentBuilder], (tcb) => {
-        return tcb.createAsync(TestComponent).then((fixture) => {
-            fixture.detectChanges();
-            let compiled = fixture.debugElement.nativeElement;
-
-            expect(compiled.innerText).toContain("HELLO");
+    it("should wrap content", () => {
+        TestBed.configureTestingModule({
+            declarations: [TestComponent]
         });
-    })));
+
+        let fixture = TestBed.createComponent(TestComponent);
+        fixture.detectChanges();
+
+        let compiled = fixture.debugElement.nativeElement;
+
+        expect(compiled.innerText).toContain("HELLO");
+    });
 });
