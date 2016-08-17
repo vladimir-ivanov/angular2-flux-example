@@ -1,5 +1,5 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-import {beforeEachProviders, beforeEach, inject, it, describe, expect} from "@angular/core/testing";
+import {inject} from "@angular/core/testing";
 import dispatcher from "./../../src/dispatcher";
 import {HomePageActions} from "../../src/home/home-page-actions";
 import {Http, HTTP_PROVIDERS, Response, ResponseOptions} from "@angular/http";

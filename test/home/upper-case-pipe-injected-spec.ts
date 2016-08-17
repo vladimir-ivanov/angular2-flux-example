@@ -3,7 +3,7 @@ import {
     TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
 } from "@angular/platform-browser-dynamic/testing";
 import {Component} from "@angular/core";
-import {it, inject, async, describe, expect, setBaseTestProviders} from "@angular/core/testing";
+import {inject, async, setBaseTestProviders} from "@angular/core/testing";
 import {TestComponentBuilder} from "@angular/compiler/testing";
 import {UpperCasePipe} from "../../src/home/upper-case-pipe";
 

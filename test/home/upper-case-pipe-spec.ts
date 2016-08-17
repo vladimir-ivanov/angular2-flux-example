@@ -1,4 +1,4 @@
-import {it, describe, expect} from "@angular/core/testing";
+/// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
 import {UpperCasePipe} from "../../src/home/upper-case-pipe";
 
 describe("UpperCasePipe", () => {

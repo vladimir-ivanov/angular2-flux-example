@@ -1,10 +1,9 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-
 import {
     TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
     TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
 } from "@angular/platform-browser-dynamic/testing";
-import {beforeEachProviders, beforeEach, it, describe, expect, inject, async, setBaseTestProviders} from "@angular/core/testing";
+import {inject, async, setBaseTestProviders} from "@angular/core/testing";
 import {TestComponentBuilder} from "@angular/compiler/testing";
 import {provide} from "@angular/core";
 import {CounterPageComponent} from "../../src/counter/counter-page-component";

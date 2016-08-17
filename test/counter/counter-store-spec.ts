@@ -1,5 +1,5 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-import {beforeEachProviders, beforeEach, inject, it, describe, expect} from "@angular/core/testing";
+import {inject} from "@angular/core/testing";
 import {CounterStore} from "./../../src/counter/counter-store";
 import dispatcher from "./../../src/dispatcher";
 import {UPDATE_COUNTER, RESET_COUNTER} from "../../src/counter/counter-actions";

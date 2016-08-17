@@ -1,6 +1,3 @@
-// Compiled using typings@0.6.10
-// Source: https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/36a1be34dbe202c665b3ddafd50824f78c09eea3/jasmine/jasmine.d.ts
-declare module 'jasmine' {
 // Type definitions for Jasmine 2.2
 // Project: http://jasmine.github.io/
 // Definitions by: Boris Yankov <https://github.com/borisyankov/>, Theodore Brown <https://github.com/theodorejb>, David Pärsson <https://github.com/davidparsson/>
@@ -9,34 +6,34 @@ declare module 'jasmine' {
 
 // For ddescribe / iit use : https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/karma-jasmine/karma-jasmine.d.ts
 
-function describe(description: string, specDefinitions: () => void): void;
-function fdescribe(description: string, specDefinitions: () => void): void;
-function xdescribe(description: string, specDefinitions: () => void): void;
+declare function describe(description: string, specDefinitions: () => void): void;
+declare function fdescribe(description: string, specDefinitions: () => void): void;
+declare function xdescribe(description: string, specDefinitions: () => void): void;
 
-function it(expectation: string, assertion?: () => void, timeout?: number): void;
-function it(expectation: string, assertion?: (done: DoneFn) => void, timeout?: number): void;
-function fit(expectation: string, assertion?: () => void, timeout?: number): void;
-function fit(expectation: string, assertion?: (done: DoneFn) => void, timeout?: number): void;
-function xit(expectation: string, assertion?: () => void, timeout?: number): void;
-function xit(expectation: string, assertion?: (done: DoneFn) => void, timeout?: number): void;
+declare function it(expectation: string, assertion?: () => void, timeout?: number): void;
+declare function it(expectation: string, assertion?: (done: DoneFn) => void, timeout?: number): void;
+declare function fit(expectation: string, assertion?: () => void, timeout?: number): void;
+declare function fit(expectation: string, assertion?: (done: DoneFn) => void, timeout?: number): void;
+declare function xit(expectation: string, assertion?: () => void, timeout?: number): void;
+declare function xit(expectation: string, assertion?: (done: DoneFn) => void, timeout?: number): void;
 
 /** If you call the function pending anywhere in the spec body, no matter the expectations, the spec will be marked pending. */
-function pending(reason?: string): void;
+declare function pending(reason?: string): void;
 
-function beforeEach(action: () => void, timeout?: number): void;
-function beforeEach(action: (done: DoneFn) => void, timeout?: number): void;
-function afterEach(action: () => void, timeout?: number): void;
-function afterEach(action: (done: DoneFn) => void, timeout?: number): void;
+declare function beforeEach(action: () => void, timeout?: number): void;
+declare function beforeEach(action: (done: DoneFn) => void, timeout?: number): void;
+declare function afterEach(action: () => void, timeout?: number): void;
+declare function afterEach(action: (done: DoneFn) => void, timeout?: number): void;
 
-function beforeAll(action: () => void, timeout?: number): void;
-function beforeAll(action: (done: DoneFn) => void, timeout?: number): void;
-function afterAll(action: () => void, timeout?: number): void;
-function afterAll(action: (done: DoneFn) => void, timeout?: number): void;
+declare function beforeAll(action: () => void, timeout?: number): void;
+declare function beforeAll(action: (done: DoneFn) => void, timeout?: number): void;
+declare function afterAll(action: () => void, timeout?: number): void;
+declare function afterAll(action: (done: DoneFn) => void, timeout?: number): void;
 
-function expect(spy: Function): jasmine.Matchers;
-function expect(actual: any): jasmine.Matchers;
+declare function expect(spy: Function): jasmine.Matchers;
+declare function expect(actual: any): jasmine.Matchers;
 
-function fail(e?: any): void;
+declare function fail(e?: any): void;
 /** Action method that should be called when the async work is complete */
 interface DoneFn extends Function {
     (): void;
@@ -45,13 +42,13 @@ interface DoneFn extends Function {
     fail: (message?: Error|string) => void;
 }
 
-function spyOn(object: any, method: string): jasmine.Spy;
+declare function spyOn(object: any, method: string): jasmine.Spy;
 
-function runs(asyncMethod: Function): void;
-function waitsFor(latchMethod: () => boolean, failureMessage?: string, timeout?: number): void;
-function waits(timeout?: number): void;
+declare function runs(asyncMethod: Function): void;
+declare function waitsFor(latchMethod: () => boolean, failureMessage?: string, timeout?: number): void;
+declare function waits(timeout?: number): void;
 
-namespace jasmine {
+declare namespace jasmine {
 
     var clock: () => Clock;
 
@@ -182,6 +179,7 @@ namespace jasmine {
         addCustomEqualityTester(equalityTester: CustomEqualityTester): void;
         addMatchers(matchers: CustomMatcherFactories): void;
         specFilter(spec: Spec): boolean;
+        throwOnExpectationFailure(value: boolean): void;
     }
 
     interface FakeTimer {
@@ -304,7 +302,7 @@ namespace jasmine {
         toContain(expected: any, expectationFailOutput?: any): boolean;
         toBeLessThan(expected: number, expectationFailOutput?: any): boolean;
         toBeGreaterThan(expected: number, expectationFailOutput?: any): boolean;
-        toBeCloseTo(expected: number, precision: any, expectationFailOutput?: any): boolean;
+        toBeCloseTo(expected: number, precision?: any, expectationFailOutput?: any): boolean;
         toThrow(expected?: any): boolean;
         toThrowError(message?: string | RegExp): boolean;
         toThrowError(expected?: new (...args: any[]) => Error, message?: string | RegExp): boolean;
@@ -507,5 +505,4 @@ namespace jasmine {
     export var HtmlReporter: HtmlReporter;
     export var HtmlSpecFilter: HtmlSpecFilter;
     export var DEFAULT_TIMEOUT_INTERVAL: number;
-}
 }

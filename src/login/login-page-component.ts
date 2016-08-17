@@ -2,8 +2,8 @@ import {Component} from "@angular/core";
 import {FORM_DIRECTIVES, NgIf, NgModel, CORE_DIRECTIVES} from "@angular/common";
 
 class Login {
-    constructor(email:string,
-                password:string) {
+    constructor(private email:string,
+                private password:string) {
     }
 }
 
