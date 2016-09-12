@@ -6,7 +6,7 @@ import {ItemsListActions} from "./items-list-actions.ts";
     providers: [ItemsListActions],
     templateUrl: "./src/items-list/item.html"
 })
-export class Item {
+export class ItemComponent {
     @Input("details") details;
 
     constructor(@Inject(ItemsListActions) private actions) {

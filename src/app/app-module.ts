@@ -1,22 +1,26 @@
 import {HttpModule} from "@angular/http";
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
 import {AppComponent} from "./app-component.ts";
-import {routes} from "../router.ts";
-import {LoginPageComponent} from "../login/login-page-component.ts";
-import {CounterPageComponent} from "../counter/counter-page-component.ts";
-import {ItemsListComponent} from "../items-list/items-list-component.ts";
-import {HomePageComponent} from "../home/home-page-component.ts";
+import {routing, appRoutingProviders} from "./routing.ts";
+import {CounterModule} from "../counter/counter-module.ts";
+import {HomePageModule} from "../home/home-page-module.ts";
+import {LoginPageModule} from "../login/login-page-module.ts";
+import {ItemsListModule} from "../items-list/items-list-module.ts";
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, LoginPageComponent, CounterPageComponent, ItemsListComponent],
+    declarations: [AppComponent],
     imports: [
+        HttpModule,
         BrowserModule,
-        FormsModule,
-        RouterModule.forRoot(routes, {useHash: true}),
-        HttpModule
+        HomePageModule,
+        CounterModule,
+        LoginPageModule,
+        ItemsListModule,
+        routing
+    ],
+    providers: [
+        appRoutingProviders
     ],
     bootstrap: [AppComponent],
 })
