@@ -40,7 +40,4 @@ or use a server of your choice and open index.html in any browser
 
 ## Todo
 Consider using web api utils to abstract away http calls from the actions (which should be responsible for caching too)
-
-
-## Example of how to do templateUrl caching for production can be found here:
-[angular2-template-caching](https://github.com/vladimir-ivanov/angular2-template-caching)
+e.g. web api utils (Flux concept)
