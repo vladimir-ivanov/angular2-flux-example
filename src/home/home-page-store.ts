@@ -29,7 +29,6 @@ export class HomePageStore extends EventEmitter<string> {
             }
 
             if (!oldStore.equals(this.store)) {
-                //  debugger;
                 this.emit("changed");
             }
 

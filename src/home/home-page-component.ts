@@ -5,8 +5,6 @@ import {HomePageStore} from "./home-page-store.ts";
 @Component({
     selector: "home",
     providers: [HomePageActions, HomePageStore],
-  //  directives: <any>[NgFor, NgStyle],
-  //  pipes: <any>[UpperCasePipe],
     templateUrl: "./src/home/home-page.html",
     styles: [],
 })

@@ -8,7 +8,6 @@ class Login {
 
 @Component({
     selector: "login-page",
- //   directives: <Array<any>>[FORM_DIRECTIVES, NgIf, NgModel, CORE_DIRECTIVES],
     templateUrl: "./src/login/login-page.html"
 })
 export class LoginPageComponent {
