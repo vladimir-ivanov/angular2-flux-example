@@ -1,11 +1,7 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
 import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
-import {TestBed, inject, async} from "@angular/core/testing";
-import {TestingCompilerFactory} from "@angular/core/testing/test_compiler";
-import {TestingCompilerFactoryImpl} from "@angular/compiler/testing";
+import {TestBed, async} from "@angular/core/testing";
 import {LoginPageComponent} from "./login-page-component.ts";
-import {CommonModule}   from '@angular/common';
-import {FormsModule}   from '@angular/forms';
 
 let component:LoginPageComponent;
 
