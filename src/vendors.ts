@@ -1,8 +1,9 @@
 import 'core-js/es6';
-import 'core-js/es7/reflect';
-import "zone.js/dist/zone";
+import 'core-js/es7';
+import "zone.js/dist/zone.js";
+import "ts-helpers";
 //for test environments
-import "zone.js/dist/long-stack-trace-zone";
+import "zone.js/dist/long-stack-trace-zone.js";
 
 import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';

@@ -1,20 +1,28 @@
 module.exports = function (config) {
     config.set({
         basePath: '',
-        frameworks: ['jasmine', 'es6-shim'],
+        frameworks: ['jasmine'],
         files: [
             'src/vendors.ts',
-            'node_modules/zone.js/dist/jasmine-patch.js',
+            'node_modules/zone.js/dist/long-stack-trace-zone.js',
+            'node_modules/zone.js/dist/proxy.js', // since zone.js 0.6.15
+            'node_modules/zone.js/dist/sync-test.js',
+            'node_modules/zone.js/dist/jasmine-patch.js', // put here since zone.js 0.6.14
             'node_modules/zone.js/dist/async-test.js',
             'node_modules/zone.js/dist/fake-async-test.js',
-        //    { pattern: 'dom-adapter-config.js', watched: false },
-            {pattern: 'test/**/*-spec.ts', watched: false}
+            {pattern: 'src/**/*.spec.ts', watched: false}
         ],
-        exclude: [],
         preprocessors: {
-      //      'dom-adapter-config.js': ['webpack'],
             'src/vendors.ts': ['webpack', 'sourcemap'],
-            'test/**/*-spec.ts': ['webpack', 'sourcemap']
+            'src/**/*.spec.ts': ['coverage', 'webpack', 'sourcemap']
+        },
+        coverageReporter: {
+            dir: 'coverage/',
+            reporters: [
+                {type: 'text-summary'},
+                {type: 'json'},
+                {type: 'html'}
+            ]
         },
         webpack: {
             resolve: {
@@ -40,7 +48,7 @@ module.exports = function (config) {
             noInfo: true //please don't spam the console when running in karma!
         },
         // possible values: 'dots', 'progress'
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
         port: 9876,
         colors: true,
 
