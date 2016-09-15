@@ -11,7 +11,7 @@ TestBed.initTestEnvironment(
 );
 
 describe("LoginPageComponent", () => {
-    beforeEach(async(()=> {
+    beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
                 LoginPageComponent
@@ -24,7 +24,7 @@ describe("LoginPageComponent", () => {
             }
         });
 
-        TestBed.compileComponents().then((ar) => {
+        TestBed.compileComponents().then(() => {
             let fixture = TestBed.createComponent(LoginPageComponent);
             fixture.detectChanges();
 
