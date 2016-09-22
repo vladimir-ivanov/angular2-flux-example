@@ -1,16 +1,10 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
 import {inject, async, TestBed} from "@angular/core/testing";
 import {CounterStore} from "./../../src/counter/counter-store";
 import dispatcher from "./../../src/dispatcher";
 import {UPDATE_COUNTER, RESET_COUNTER} from "../../src/counter/counter-actions";
 
 let store:any;
-
-TestBed.initTestEnvironment(
-    BrowserDynamicTestingModule,
-    platformBrowserDynamicTesting()
-);
 
 describe("CounterStore", () => {
     beforeEach(async(() => {

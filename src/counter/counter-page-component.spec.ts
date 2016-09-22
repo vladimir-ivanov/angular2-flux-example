@@ -1,16 +1,10 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
 import {TestBed, async} from "@angular/core/testing";
 import {CounterPageComponent} from "../../src/counter/counter-page-component";
 import {CounterStore} from "../../src/counter/counter-store";
 import {CounterActions} from "../../src/counter/counter-actions";
 
-TestBed.initTestEnvironment(
-    BrowserDynamicTestingModule,
-    platformBrowserDynamicTesting()
-);
-
-describe("CounterPageComponent", () => {
+xdescribe("CounterPageComponent", () => {
     let component:any;
     let actions:any;
     let store:any;

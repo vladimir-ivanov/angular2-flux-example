@@ -1,15 +1,9 @@
 /// <reference path="../../typings/browser/definitions/jasmine/jasmine.d.ts"/>
-import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from "@angular/platform-browser-dynamic/testing";
 import {inject, async, TestBed} from "@angular/core/testing";
 import {CounterActions} from "./../../src/counter/counter-actions.ts";
 import dispatcher from "./../../src/dispatcher.ts";
 
 let actions:CounterActions;
-
-TestBed.initTestEnvironment(
-    BrowserDynamicTestingModule,
-    platformBrowserDynamicTesting()
-);
 
 describe("CounterActions", () => {
     beforeEach(async(() => {

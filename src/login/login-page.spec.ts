@@ -4,11 +4,11 @@ import {TestBed, async} from "@angular/core/testing";
 import {LoginPageComponent} from "./login-page-component.ts";
 
 let component:LoginPageComponent;
-
-TestBed.initTestEnvironment(
-    BrowserDynamicTestingModule,
-    platformBrowserDynamicTesting()
-);
+//
+// TestBed.initTestEnvironment(
+//     BrowserDynamicTestingModule,
+//     platformBrowserDynamicTesting()
+// );npm 
 
 describe("LoginPageComponent", () => {
     beforeEach(async(() => {
