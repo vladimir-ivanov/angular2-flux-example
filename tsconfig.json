@@ -5,7 +5,7 @@
     "noImplicitAny": false,
     "outDir": "built",
     "rootDir": ".",
-    "sourceMap": "inlineSourceMap",
+    "sourceMap": true,
     "experimentalDecorators": true
   },
   "files": [
